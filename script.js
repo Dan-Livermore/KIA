@@ -1,30 +1,35 @@
-const form = document.getElementById("form-kia");
+const form = document.getElementById("myForm");
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
+form.addEventListener("submit", async (event) => {
 
-    const data = Object.fromEntries(
-        new FormData(form).entries()
-    );
+    event.preventDefault();
 
-    // Convert the data object to JSON
-    const json = JSON.stringify(data, null, 2);
+    const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value
+    };
 
-    // Create a file from the JSON
-    const blob = new Blob([json], {
-        type: "application/json"
-    });
+    try {
 
-    // Create a temporary download link
-    const url = URL.createObjectURL(blob);
+        await fetch(
+            "https://script.google.com/macros/s/AKfycbwxGVSCTvuqQst6rqg_lvyheqAZn3jVgmWpr0ZYu1ocTQFIhs8_Nl9COFm1oe02Pt4wuA/exec",
+            {
+                method: "POST",
+                mode: "no-cors",
+                body: JSON.stringify(data)
+            }
+        );
 
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "schedule.json";
+        alert("Submitted!");
 
-    // Download the file
-    link.click();
+        form.reset();
 
-    // Clean up
-    URL.revokeObjectURL(url);
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Something went wrong.");
+
+    }
+
 });
