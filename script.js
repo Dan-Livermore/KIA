@@ -2,7 +2,7 @@ const form = document.getElementById("myForm");
 const submitButton = document.getElementById("submitButton");
 const statusMessage = document.getElementById("status");
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxwqQu_54O2-sJfcZ_Fguu5s7_jFppkHQwRvqPLE45AKFA1a4GV3fN92EhH1EG7JaTu0Q/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx8Pm_taFzeY5wdWw2_SV1ouh0tFlSXS1GXVeSEbDXLgQiQPElmMglsFOCTPIK8B5A/exec";
 
 form.addEventListener("submit", async function (event) {
   event.preventDefault();
