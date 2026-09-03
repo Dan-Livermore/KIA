@@ -1,35 +1,47 @@
 const form = document.getElementById("myForm");
+const submitButton = document.getElementById("submitButton");
+const statusMessage = document.getElementById("status");
 
-form.addEventListener("submit", async (event) => {
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxwqQu_54O2-sJfcZ_Fguu5s7_jFppkHQwRvqPLE45AKFA1a4GV3fN92EhH1EG7JaTu0Q/exec";
 
-    event.preventDefault();
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
 
-    const data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value
-    };
+  submitButton.disabled = true;
+  submitButton.textContent = "Submitting...";
+  statusMessage.textContent = "";
 
-    try {
+  const submission = {
+    car: document.getElementById("car").value.trim(),
+    customer: document.getElementById("customer").value.trim(),
+    starttime: document.getElementById("start-time").value.trim(),
+    endtime: document.getElementById("end-time").value.trim(),
+  };
 
-        await fetch(
-            "https://script.google.com/macros/s/AKfycbxwqQu_54O2-sJfcZ_Fguu5s7_jFppkHQwRvqPLE45AKFA1a4GV3fN92EhH1EG7JaTu0Q/exec",
-            {
-                method: "POST",
-                mode: "no-cors",
-                body: JSON.stringify(data)
-            }
-        );
+  try {
+    const response = await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
 
-        alert("Submitted!");
+      body: JSON.stringify(submission),
+    });
 
-        form.reset();
+    const result = await response.json();
 
-    } catch (error) {
+    if (result.success) {
+      statusMessage.textContent =
+        "Thank you! Your submission has been received.";
 
-        console.error(error);
-
-        alert("Something went wrong.");
-
+      form.reset();
+    } else {
+      throw new Error(result.error || "Submission failed.");
     }
+  } catch (error) {
+    console.error("Submission error:", error);
 
+    statusMessage.textContent =
+      "Sorry, something went wrong. Please try again.";
+  }
+
+  submitButton.disabled = false;
+  submitButton.textContent = "Submit";
 });

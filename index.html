@@ -13,21 +13,23 @@
 
         <form id="form-kia">
             <label for="text">Car Name</label>
-            <input type="text" id="car" name="car">
+            <input type="text" id="car" name="car" required>
             
             <label for="text">Customer Name</label>
-            <input type="text" id="customer" name="customer">
+            <input type="text" id="customer" name="customer" required>
             
             <label for="start-time">Start Time</label>
-            <input type="datetime-local" id="start-time" name="startTime">
+            <input type="datetime-local" id="start-time" name="startTime" required>
             
             <label for="end-time">End Time</label>
-            <input type="datetime-local" id="end-time" name="endTime">
+            <input type="datetime-local" id="end-time" name="endTime"  required>
             
-            <button type="submit">Save</button>
+            <button type="submit" id="submitbutton">Save</button>
+
+            <p id="status"></p>
         </form>
 
-        <!-- <button id="scheduled-btn"> View Scheduled Dynamic Text</button> -->
+        <!-- <button id="scheduledbutton"> View Scheduled Dynamic Text</button> -->
     </div>
 </body>
     <script src="script.js"></script>
