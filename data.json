@@ -11,5 +11,12 @@
     "startTime": "2026-09-02T15:21",
     "endTime": "2026-09-03T15:21",
     "timestamp": "2026-09-03T08:29:38.476Z"
+  },
+  {
+    "car": "John",
+    "customer": "Hoveton",
+    "startTime": "2026-10-02T15:21",
+    "endTime": "2026-010-03T15:21",
+    "timestamp": "2026-09-03T08:30:20.156Z"
   }
 ]
