@@ -12,5 +12,12 @@
     "starttime": "2026-09-03T13:00",
     "endtime": "2026-09-03T13:05",
     "timestamp": "2026-09-03T09:29:50.713Z"
+  },
+  {
+    "car": "Super Fast Car",
+    "customer": "Client 21",
+    "starttime": "2026-09-03T14:11",
+    "endtime": "2026-09-03T15:11",
+    "timestamp": "2026-09-03T10:11:44.147Z"
   }
 ]
