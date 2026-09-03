@@ -12,7 +12,7 @@ form.addEventListener("submit", async (event) => {
     try {
 
         await fetch(
-            "https://script.google.com/macros/s/AKfycbwxGVSCTvuqQst6rqg_lvyheqAZn3jVgmWpr0ZYu1ocTQFIhs8_Nl9COFm1oe02Pt4wuA/exec",
+            "https://script.google.com/macros/s/AKfycbxwqQu_54O2-sJfcZ_Fguu5s7_jFppkHQwRvqPLE45AKFA1a4GV3fN92EhH1EG7JaTu0Q/exec",
             {
                 method: "POST",
                 mode: "no-cors",
