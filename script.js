@@ -1,4 +1,4 @@
-const form = document.getElementById("myForm");
+const form = document.getElementById("form-kia");
 const submitButton = document.getElementById("submitButton");
 const statusMessage = document.getElementById("status");
 
