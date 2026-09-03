@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "car": "Kia Picanto",
+    "customer": "Mr Newgate",
+    "starttime": "2026-09-03T10:20",
+    "endtime": "2026-09-03T12:20",
+    "timestamp": "2026-09-03T09:18:32.546Z"
+  }
+]
