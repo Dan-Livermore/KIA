@@ -1,36 +1,252 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>KIA Dynamic Text Test</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>   
+  <body>
     <div id="form">
-        <h1> Kia Dynamic Text</h1>
+      <h1>Kia Dynamic Text</h1>
+      <form id="form-kia">
 
-        <form id="form-kia">
-            <label for="text">Car Name</label>
-            <input type="text" id="car" name="car" required>
-            
-            <label for="text">Customer Name</label>
-            <input type="text" id="customer" name="customer" required>
-            
-            <label for="start-time">Start Time</label>
-            <input type="datetime-local" id="start-time" name="startTime" required>
-            
-            <label for="end-time">End Time</label>
-            <input type="datetime-local" id="end-time" name="endTime"  required>
-            
-            <button type="submit" id="submitButton">Save</button>
+        <label for="text">Dealer Name</label>
+        <input type="text" id="dealer" name="dealer" list="dealers" placeholder="Start typing a dealer name..." required>
+        <datalist id="dealers" name="dealers">
+          <option>Acorn (Burntwood)</option>
+          <option>Acorn (Crewe)</option>
+          <option>Acorn (Macclesfield)</option>
+          <option>Acorn (St Helens)</option>
+          <option>Acorn (Warrington)</option>
+          <option>Allingtons (Ashington)</option>
+          <option>Arnold Clark (Aberdeen)</option>
+          <option>Arnold Clark (Ayr)</option>
+          <option>Arnold Clark (Cumbernauld)</option>
+          <option>Arnold Clark (Dundee)</option>
+          <option>Arnold Clark (Edinburgh)</option>
+          <option>Arnold Clark (Glasgow)</option>
+          <option>Arnold Clark (Kirkcaldy)</option>
+          <option>Arnold Clark (Liverpool)</option>
+          <option>Arnold Clark (Northwich)</option>
+          <option>Arnold Clark (Paisley)</option>
+          <option>Barretts of Canterbury</option>
+          <option>Bath Kia</option>
+          <option>Bel Royal Motors (Jersey)</option>
+          <option>Bells (Bedford)</option>
+          <option>Bells (Northampton)</option>
+          <option>Bentley Motor Group (Keighley)</option>
+          <option>Birchwood (Chichester)</option>
+          <option>Birchwood (Eastbourne)</option>
+          <option>Birchwood (Washington)</option>
+          <option>Bolton Kia</option>
+          <option>Boongate (Peterborough)</option>
+          <option>Brayley (Dunstable)</option>
+          <option>Brayley (Enfield)</option>
+          <option>Brayley (Harpenden)</option>
+          <option>Brentwood Kia</option>
+          <option>Brindley (West Bromwich)</option>
+          <option>Brindley (Wolverhampton)</option>
+          <option>Burton Kia</option>
+          <option>Charles Hurst (Belfast)</option>
+          <option>Charles Hurst (Newtownabbey)</option>
+          <option>Chippenham Motor Company</option>
+          <option>Citygate (High Wycombe)</option>
+          <option>Citygate (Slough)</option>
+          <option>Citygate (Watford)</option>
+          <option>Clarks of Kidderminster</option>
+          <option>D M Keith (Doncaster)</option>
+          <option>D M Keith (Leeds)</option>
+          <option>Dicksons of Inverness</option>
+          <option>Donalds (Bury St Edmunds)</option>
+          <option>Donalds (Ipswich)</option>
+          <option>Downeys (Newtownards)</option>
+          <option>Drayton Motors (Boston)</option>
+          <option>Drayton Motors (Grantham)</option>
+          <option>Drayton Motors (Louth)</option>
+          <option>Drayton Motors (Scunthorpe)</option>
+          <option>Edwards (Kempsey)</option>
+          <option>EMG (Cambridge)</option>
+          <option>EMG (Ely)</option>
+          <option>EMG (Kings Lynn)</option>
+          <option>EMG (South Cambridge)</option>
+          <option>EMG (Thetford)</option>
+          <option>Evans Halshaw (Hull)</option>
+          <option>Evans Halshaw (Stourbridge)</option>
+          <option>F J Chalke (Mere)</option>
+          <option>F J Chalke (Yeovil)</option>
+          <option>Fish Brothers (Swindon)</option>
+          <option>Fisken (Forfar)</option>
+          <option>Flear & Thomson (Dunfermline)</option>
+          <option>Flear & Thomson (Perth)</option>
+          <option>Flear & Thomson (Stirling)</option>
+          <option>Forest Road Garage (Guernsey)</option>
+          <option>Furrows (Shrewsbury)</option>
+          <option>Furrows (Telford)</option>
+          <option>Gatwick Kia</option>
+          <option>Glyn Hopkin (Colchester)</option>
+          <option>Glyn Hopkin (East London)</option>
+          <option>Glyn Hopkin (Romford)</option>
+          <option>Gravells (Abergavenny)</option>
+          <option>Gravells (Bridgend)</option>
+          <option>Gravells (Hereford)</option>
+          <option>Gravells (Kidwelly)</option>
+          <option>Gravells (Narberth)</option>
+          <option>Gravells (Swansea)</option>
+          <option>Griffin Mill (Pontypridd)</option>
+          <option>Group 1 (Coulsdon)</option>
+          <option>Group 1 (Maidstone)</option>
+          <option>GWR (Brentford)</option>
+          <option>Halliwell Jones (Southport)</option>
+          <option>Hawkins Motors (Hayle)</option>
+          <option>Hawkins Motors (Indian Queens)</option>
+          <option>Hendy (Bournemouth)</option>
+          <option>Hendy (Eastleigh)</option>
+          <option>Hendy (Portsmouth)</option>
+          <option>Hendy (Tunbridge Wells)</option>
+          <option>Holden (Norwich)</option>
+          <option>Howard Abraham (Lurgan)</option>
+          <option>Howards (Barnstaple)</option>
+          <option>Howards (Taunton)</option>
+          <option>Howards (Weston Super Mare)</option>
+          <option>Humming Bird (Colindale)</option>
+          <option>J T Hughes (Newtown)</option>
+          <option>JCB (Ashford)</option>
+          <option>JCB (Bromley)</option>
+          <option>JCB (Ebbsfleet)</option>
+          <option>JCB (Rainham)</option>
+          <option>JCT600 (Castleford)</option>
+          <option>John Clark (Peterhead)</option>
+          <option>John Grose (Lowestoft)</option>
+          <option>Ken Brown (Harlow)</option>
+          <option>Ken Brown (Stevenage)</option>
+          <option>Ken Jervis (Stoke-on-Trent)</option>
+          <option>Leslies (Cowes)</option>
+          <option>Llandudno Kia</option>
+          <option>Lloyd (Carlisle)</option>
+          <option>Lloyd (South Lakes)</option>
+          <option>Lloyd (West Cumbria)</option>
+          <option>Lookers (Chester)</option>
+          <option>Lookers (Gateshead)</option>
+          <option>Lookers (Stockport)</option>
+          <option>Mantles (Royston)</option>
+          <option>Milton Keynes Kia</option>
+          <option>Murray (Plymouth)</option>
+          <option>N K Motors (Chilwell)</option>
+          <option>N K Motors (Derby)</option>
+          <option>Ocean (Isle of Man)</option>
+          <option>OMC Motor Group (Oldham)</option>
+          <option>Park's (Bathgate)</option>
+          <option>Park's (Coatbridge)</option>
+          <option>Park's (East Kilbride)</option>
+          <option>Pentagon (Mansfield)</option>
+          <option>Pentagon (Sheffield)</option>
+          <option>Pentraeth (Menai Bridge)</option>
+          <option>Perrys (Burnley)</option>
+          <option>Perrys (Huddersfield)</option>
+          <option>Perrys (Preston)</option>
+          <option>Perrys (Rotherham)</option>
+          <option>Perrys (Worksop)</option>
+          <option>Peter Cooper (Southampton)</option>
+          <option>Piccadilly Motors (Knaresborough)</option>
+          <option>Piccadilly Motors (Wakefield)</option>
+          <option>Premier Automotive (Dukinfield)</option>
+          <option>Premier Automotive (Rochdale)</option>
+          <option>Proven (Haslemere)</option>
+          <option>Rayleigh Kia</option>
+          <option>Roadside Garages (Coleraine)</option>
+          <option>RRG (Bury)</option>
+          <option>S G Petch (Darlington)</option>
+          <option>S G Petch (Richmond)</option>
+          <option>S G Petch (Sunderland)</option>
+          <option>S G Petch (York)</option>
+          <option>Sandown (Salisbury)</option>
+          <option>Shelbourne Motors (Newry)</option>
+          <option>Shelly Motors (Epsom)</option>
+          <option>Snows (Basingstoke)</option>
+          <option>Snows (Guildford)</option>
+          <option>Snows (Newbury)</option>
+          <option>Solihull Kia</option>
+          <option>Speedwell (Exeter)</option>
+          <option>Speedwell (Torbay)</option>
+          <option>Startin (Redditch)</option>
+          <option>Startin (Warwick)</option>
+          <option>Stockton Kia</option>
+          <option>Stoneacre (Durham)</option>
+          <option>Stoneacre (Grimsby)</option>
+          <option>Stoneacre (Lincoln)</option>
+          <option>Stoneacre (Stafford)</option>
+          <option>Stoneacre (Wallasey)</option>
+          <option>Sutton Park (Coventry)</option>
+          <option>Sutton Park (Sutton Coldfield)</option>
+          <option>T C Autos (Omagh)</option>
+          <option>Tates (Pyecombe)</option>
+          <option>TMS (Hinckley)</option>
+          <option>TMS (Leicester)</option>
+          <option>TMS (Loughborough)</option>
+          <option>Todds of Campsie</option>
+          <option>Tower Hill (Chipperfield)</option>
+          <option>Triangle of Chesterfield</option>
+          <option>Vantage (Scarborough)</option>
+          <option>Vertu (Barnsley)</option>
+          <option>Vertu (Bradford)</option>
+          <option>Vertu (Edinburgh)</option>
+          <option>Vertu (Nottingham)</option>
+          <option>W J King (Sidcup)</option>
+          <option>Waylands (Bicester)</option>
+          <option>Waylands (Oxford)</option>
+          <option>Waylands (Reading)</option>
+          <option>Wessex (Bristol)</option>
+          <option>Wessex (Cardiff)</option>
+          <option>Wessex (Gloucester)</option>
+          <option>Wessex (Newport)</option>
+          <option>West End Garage</option>
+          <option>West Riding (Blackpool)</option>
+          <option>Westdrive (Braintree)</option>
+        </datalist>
 
-            <p id="status"></p>
-        </form>
+        <label for="text">Customer Name</label>
+        <input type="text" id="customer" name="customer" placeholder="Enter the clients name" required />
 
-        <!-- <button id="scheduledButton"> View Scheduled Dynamic Text</button> -->
+        <label for="text">Car Name</label>
+        <select id="car" name="car" required>
+          <option value="">Select a car</option>
+          <option value="EV2">EV2</option>
+          <option value="EV3">EV3</option>
+          <option value="EV4">EV4</option>
+          <option value="EV4 Fastback">EV4 Fastback</option>
+          <option value="EV5 GT">EV5 GT</option>
+          <option value="EV6">EV6</option>
+          <option value="EV6 GT">EV6 GT</option>
+          <option value="EV9">EV9</option>
+          <option value="EV9 GT">EV9 GT</option>
+          <option value="K4">K4</option>
+          <option value="Niro">Niro</option>
+          <option value="Picanto">Picanto</option>
+          <option value="Sorento">Sorento</option>
+          <option value="Sportage">Sportage</option>
+          <option value="Stonic">Stonic</option>
+          <option value="XCeed">XCeed</option>
+        </select>
+
+        <label for="start-time">Start Time</label>
+        <input
+          type="datetime-local"
+          id="start-time"
+          name="startTime"
+          required
+        />
+
+        <label for="end-time">End Time</label>
+        <input type="datetime-local" id="end-time" name="endTime" required />
+
+        <button type="submit" id="submitButton">Save</button>
+
+        <p id="status"></p>
+      </form>
+
+      <!-- <button id="scheduledButton"> View Scheduled Dynamic Text</button> -->
     </div>
-</body>
-    <script src="script.js"></script>
+  </body>
+  <script src="script.js"></script>
 </html>
