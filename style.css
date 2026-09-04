@@ -69,3 +69,41 @@ form button {
     width: 25%;
     background: red;
 }
+
+#status {
+    width: 100%;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    background: white;
+}
+
+thead {
+    background: #003366;
+    color: white;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background: #f5f5f5;
+}
+
+tbody tr:hover {
+    background: #e6f2ff;
+}
+
+th {
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+}
