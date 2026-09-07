@@ -55,5 +55,13 @@
     "starttime": "2026-09-07T11:38",
     "endtime": "2026-09-07T12:38",
     "timestamp": "2026-09-07T10:38:40.447Z"
+  },
+  {
+    "dealer": "Solihull Kia",
+    "car": "EV4 Fastback",
+    "customer": "Mr Bonnano",
+    "starttime": "2026-09-07T15:20",
+    "endtime": "2026-09-07T17:24",
+    "timestamp": "2026-09-07T14:24:34.913Z"
   }
 ]
