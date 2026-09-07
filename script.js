@@ -49,10 +49,11 @@ form.addEventListener("submit", async function (event) {
 
 
 let dealers = [];
+let cars = [];
 
 async function loadDealers() {
     try {
-        const response = await fetch("dealers.json");
+        const response = await fetch("./dealers.json");
         dealers = await response.json();
 
         const dealerInput = document.getElementById("dealer");
@@ -102,3 +103,46 @@ async function loadDealers() {
 }
 
 document.addEventListener("DOMContentLoaded", loadDealers);
+
+
+
+async function loadCars() {
+    try {
+        const response = await fetch("./cars.json");
+        cars = await response.json();
+
+        const carInput = document.getElementById("car");
+        const results = document.getElementById("car-results");
+
+        carInput.addEventListener("click", () => {
+            results.innerHTML = "";
+
+            cars.forEach(car => {
+                const div = document.createElement("div");
+                div.className = "result-item";
+                div.textContent = car.name;
+
+                div.addEventListener("click", () => {
+                    carInput.value = car.name;
+                    results.innerHTML = "";
+                });
+
+                results.appendChild(div);
+            });
+        });
+
+        document.addEventListener("click", (e) => {
+            if (
+                e.target !== carInput &&
+                !results.contains(e.target)
+            ) {
+                results.innerHTML = "";
+            }
+        });
+
+    } catch (error) {
+        console.error("Failed to load cars:", error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadCars);
