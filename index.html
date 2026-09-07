@@ -4,16 +4,35 @@
     <meta charset="UTF-8" />
     <title>KIA Dynamic Text Test</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/choices.js/publics"
+    />
   </head>
 
   <body>
     <div id="form">
       <h1>Kia Dynamic Text</h1>
-      <form id="form-kia">
 
-        <label for="text">Dealer Name</label>
-        <input type="text" id="dealer" name="dealer" list="dealers" placeholder="Start typing a dealer name..." required>
-        <datalist id="dealers" name="dealers">
+      <form id="form-kia">
+          <label for="dealer">Dealer</label>
+        <div class="autocomplete-container">
+          
+          <input
+            type="text"
+            id="dealer"
+            name="dealer"
+            autocomplete="off"
+            placeholder="Enter the dealer's name"
+          />
+
+          <div id="results"></div>
+        </div>
+
+        <!-- <input list="dealers" id="dealer" name="dealer"> -->
+        <!-- <datalist id="dealers"></datalist> -->
+        <!-- <select id="dealers" name="dealers">
+          <option value="">Select a country</option>
           <option>Acorn (Burntwood)</option>
           <option>Acorn (Crewe)</option>
           <option>Acorn (Macclesfield)</option>
@@ -202,11 +221,17 @@
           <option>Wessex (Newport)</option>
           <option>West End Garage</option>
           <option>West Riding (Blackpool)</option>
-          <option>Westdrive (Braintree)</option>
-        </datalist>
+          <option>Westdrive (Braintree)</option> 
+        </select> -->
 
         <label for="text">Customer Name</label>
-        <input type="text" id="customer" name="customer" placeholder="Enter the clients name" required />
+        <input
+          type="text"
+          id="customer"
+          name="customer"
+          placeholder="Enter the clients name"
+          required
+        />
 
         <label for="text">Car Name</label>
         <select id="car" name="car" required>
