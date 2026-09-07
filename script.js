@@ -12,6 +12,7 @@ form.addEventListener("submit", async function (event) {
   statusMessage.textContent = "";
 
   const submission = {
+    dealer: document.getElementById("dealer").value.trim(),
     car: document.getElementById("car").value.trim(),
     customer: document.getElementById("customer").value.trim(),
     starttime: document.getElementById("start-time").value.trim(),
@@ -45,3 +46,59 @@ form.addEventListener("submit", async function (event) {
   submitButton.disabled = false;
   submitButton.textContent = "Submit";
 });
+
+
+let dealers = [];
+
+async function loadDealers() {
+    try {
+        const response = await fetch("dealers.json");
+        dealers = await response.json();
+
+        const dealerInput = document.getElementById("dealer");
+        const results = document.getElementById("results");
+
+        dealerInput.addEventListener("input", () => {
+            const search = dealerInput.value.toLowerCase().trim();
+
+            results.innerHTML = "";
+
+            if (search.length < 2) {
+                return;
+            }
+
+            const matches = dealers
+                .filter(dealer =>
+                    dealer.name.toLowerCase().includes(search)
+                )
+                .slice(0, 10);
+
+            matches.forEach(dealer => {
+                const div = document.createElement("div");
+                div.className = "result-item";
+                div.textContent = dealer.name;
+
+                div.addEventListener("click", () => {
+                    dealerInput.value = dealer.name;
+                    results.innerHTML = "";
+                });
+
+                results.appendChild(div);
+            });
+        });
+
+        document.addEventListener("click", (e) => {
+            if (
+                e.target !== dealerInput &&
+                !results.contains(e.target)
+            ) {
+                results.innerHTML = "";
+            }
+        });
+
+    } catch (error) {
+        console.error("Failed to load dealers:", error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadDealers);
