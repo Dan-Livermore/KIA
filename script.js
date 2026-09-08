@@ -4,12 +4,18 @@ const statusMessage = document.getElementById("status");
 
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx8Pm_taFzeY5wdWw2_SV1ouh0tFlSXS1GXVeSEbDXLgQiQPElmMglsFOCTPIK8B5A/exec";
 
+let dealers = [];
+let cars = [];
+
+
 form.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   submitButton.disabled = true;
   submitButton.textContent = "Submitting...";
   statusMessage.textContent = "";
+
+  validateForm();
 
   const submission = {
     dealer: document.getElementById("dealer").value.trim(),
@@ -47,9 +53,47 @@ form.addEventListener("submit", async function (event) {
   submitButton.textContent = "Submit";
 });
 
+function validateForm(){
+    validatesEmpty();
+    validateDuplicates();
+    validateDealers();
+    validateCars();
+    validateCustomers();
+    validateStartTime();
+    validateEndTime();
+}
 
-let dealers = [];
-let cars = [];
+function validateEmpty(){
+    // no field is empty
+}
+
+function validateDuplicates(){
+    // dealer + customer + car doesnt already exist
+}
+
+function validateDealers(){
+  // Dealer on list
+  }
+
+function validateCars(){
+  // Car on list
+  }
+
+function validateCustomers(){
+  // Customer doesn't contain non letters
+  // Customer isnt 100 chars
+  // Capitalise
+  }
+
+function validateStartTime(){
+  // Start time not in past
+  }
+
+function validateEndTime(){
+    // End time is not before start time
+}
+
+
 
 async function loadDealers() {
     try {
@@ -101,10 +145,7 @@ async function loadDealers() {
         console.error("Failed to load dealers:", error);
     }
 }
-
 document.addEventListener("DOMContentLoaded", loadDealers);
-
-
 
 async function loadCars() {
     try {
@@ -144,5 +185,4 @@ async function loadCars() {
         console.error("Failed to load cars:", error);
     }
 }
-
 document.addEventListener("DOMContentLoaded", loadCars);
