@@ -63,5 +63,13 @@
     "starttime": "2026-09-07T15:20",
     "endtime": "2026-09-07T17:24",
     "timestamp": "2026-09-07T14:24:34.913Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Barnaby",
+    "starttime": "2026-09-08T11:56",
+    "endtime": "2026-09-08T18:56",
+    "timestamp": "2026-09-08T10:56:26.631Z"
   }
 ]
