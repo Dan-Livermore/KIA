@@ -15,7 +15,11 @@ form.addEventListener("submit", async function (event) {
   submitButton.textContent = "Submitting...";
   statusMessage.textContent = "";
 
-  validateForm();
+  if (!validateForm()){
+    submitButton.disabled = false;
+    submitButton.textContent = "Submit";
+    return;
+  };
 
   const submission = {
     dealer: document.getElementById("dealer").value.trim(),
@@ -52,78 +56,6 @@ form.addEventListener("submit", async function (event) {
   submitButton.disabled = false;
   submitButton.textContent = "Submit";
 });
-
-function validateForm() {
-//   validatesEmpty();
-//   validateDuplicates();
-//   validateDealers();
-//   validateCars();
-  if (!validateCustomers()){
-    submitButton.disabled = false;
-    submitButton.textContent = "Submit";
-    return;
-  }
-//   validateStartTime();
-//   validateEndTime();
-}
-
-function validateEmpty() {
-  // no field is empty
-}
-
-function validateDuplicates() {
-  // dealer + customer + car doesnt already exist
-}
-
-function validateDealers() {
-  // Dealer on list
-}
-
-function validateCars() {
-  // Car on list
-}
-
-function validateCustomers() {
-  // Get customer data from form
-  const customerFormInput = document.getElementById("customer");
-  let customer = customerFormInput.value.trim();
-
-  // Customer Name doesn't contain non letters
-  const validChars = /^[A-Za-z\s'-]+$/;
-  if (!validChars.test(customer)) {
-    statusMessage.textContent(
-      "Customer name can only include letters, spaces, apostrophies and hyphens.",
-    );
-    return false;
-  }
-
-  // Customer Name must exist
-  if (customer.length === 0) {
-    statusMessage.textContent("Please enter a customer name.");
-    return false;
-  }
-
-  //Customer Name must be shorter than 100 characters
-  if (customer.length > 100) {
-    statusMessage.textContent("Customer name must be under 100 characters.");
-    return false;
-  }
-
-  // Capitalise
-  customer = customer.toLowerCase().split(" ").map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
-  customerFormInput.value = customer;
-  //customer = customer.replace(/^(mr|mrs|miss|ms|mx|dr)\s+/i, "");
-
-  return true;
-}
-
-function validateStartTime() {
-  // Start time not in past
-}
-
-function validateEndTime() {
-  // End time is not before start time
-}
 
 async function loadDealers() {
   try {

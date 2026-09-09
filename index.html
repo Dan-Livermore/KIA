@@ -14,16 +14,16 @@
       <form id="form-kia">
         <label for="dealer">Dealer</label>
         <div class="dropdown">
-          <input type="text" id="dealer" autocomplete="off" placeholder="Enter the dealer's name"/>
+          <input type="text" id="dealer" autocomplete="off" placeholder="Enter the dealer's name" required/>
           <div id="results"></div>
         </div>
 
         <label for="text">Customer Name</label>
-        <input type="text" id="customer" placeholder="Enter the clients name" required/>
+        <input type="text" id="customer" placeholder="Enter the customer's name" required/>
 
         <label for="text">Car Name</label>
         <div class="dropdown">
-          <input type="text" id="car" autocomplete="off" readonly placeholder="Select a car"/>
+          <input type="text" id="car" autocomplete="off" readonly placeholder="Select a car" required/>
           <div id="car-results"></div>
         </div>
 
@@ -39,5 +39,6 @@
       </form>
     </div>
   </body>
+  <script src="validation.js"></script>
   <script src="script.js"></script>
 </html>
