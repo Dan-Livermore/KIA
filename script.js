@@ -2,11 +2,24 @@ const form = document.getElementById("form-kia");
 const submitButton = document.getElementById("submitButton");
 const statusMessage = document.getElementById("status");
 
-const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbx8Pm_taFzeY5wdWw2_SV1ouh0tFlSXS1GXVeSEbDXLgQiQPElmMglsFOCTPIK8B5A/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx8Pm_taFzeY5wdWw2_SV1ouh0tFlSXS1GXVeSEbDXLgQiQPElmMglsFOCTPIK8B5A/exec";
 
 let dealers = [];
 let cars = [];
+let bookings = [];
+
+window.addEventListener("load", () =>{
+  const backgroundImages = [
+    "EV2Exterior1.jpg",
+    "EV2Exterior2.jpeg",
+    "EV2Exterior7.jpg",
+  ];
+
+  const random = Math.floor(Math.random() * 3) + 1;
+  document.body.style.backgroundImage = `url('EV2Exterior${random}.jpg')`;
+});
+
+
 
 form.addEventListener("submit", async function (event) {
   event.preventDefault();
