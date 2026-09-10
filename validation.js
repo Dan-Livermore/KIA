@@ -9,11 +9,16 @@ async function validateForm() {
   getData();
 
   // Fetches existing bookings to be used to prevent duplication
-
-
+const response = await fetch("data.json");
+if (!response.ok) {
+  statusMessage.textContent = "Could not load existing bookings.";
+  return false;
+}
+const bookings = await response.json();
+statusMessage.style.color = "red";
   return (
     validateEmpty() &&
-    validateDuplicates() &&
+    validateDuplicates(bookings) &&
     validateDealers() &&
     validateCars() &&
     validateCustomers() &&
@@ -27,8 +32,8 @@ function getData() {
   dealer = document.getElementById("dealer").value.trim();
   customer = document.getElementById("customer").value.trim();
   car = document.getElementById("car").value.trim();
-  startTime = new Date(document.getElementById("start-time").value);
-  endTime = new Date(document.getElementById("end-time").value);
+  startTime = new Date(document.getElementById("start-time").value).getTime();
+  endTime = new Date(document.getElementById("end-time").value).getTime();
 }
 
 function validateEmpty() {
@@ -48,23 +53,46 @@ function validateEmpty() {
     return false;
   }
   // Start Time must exist
-  if (startTime.length === 0) {
+  if (isNaN(startTime)) {
     statusMessage.textContent = "Please enter a valid start time";
     return false;
   }
   // End Time must exist
-  if (endTime.length === 0) {
+  if (isNaN(endTime)) {
     statusMessage.textContent = "Please enter a valid end time";
     return false;
   }
   return true;
 }
 
-function validateDuplicates() {
-  // Fetch previous json data
-  // Filter by location
-  // Filter by customer name
-  // If location and customer and car are the same make return   statusMessage.textContent = "This booking already exists.");
+function validateDuplicates(bookings) {
+  // Fail if location, customer and car are all the same time
+  const duplicate = bookings.some(
+    (booking) =>
+      booking.location === dealer &&
+      booking.customer === customer &&
+      booking.car === car &&
+      new Date(booking.starttime).getTime() === startTime,
+  );
+
+  if (duplicate) {
+    statusMessage.textContent = "This booking already exists.";
+    return false;
+  }
+
+  // Fail if customer already has a meeting
+  const clash = bookings.some(
+    (booking) =>
+      booking.location === dealer &&
+      booking.customer === customer &&
+      new Date(booking.starttime).getTime() === startTime,
+  );
+
+  if (clash) {
+    statusMessage.textContent = "This customer already has a booking at this store for this time.";
+    return false;
+  }
+  return true;
 }
 
 function validateDealers() {
@@ -91,7 +119,8 @@ function validateCustomers() {
   // Customer Name doesn't contain non letters
   const validChars = /^[A-Za-z\s'-]+$/;
   if (!validChars.test(customer)) {
-    statusMessage.textContent = "Customer name can only include letters, spaces, apostrophies and hyphens.";
+    statusMessage.textContent =
+      "Customer name can only include letters, spaces, apostrophies and hyphens.";
     return false;
   }
 
@@ -102,7 +131,11 @@ function validateCustomers() {
   }
 
   // Capitalise and return data
-  customer = customer.toLowerCase().split(" ").map((word) => word.charAt(0).toUpperCase() + word.substring(1)).join(" ");
+  customer = customer
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
+    .join(" ");
   document.getElementById("customer").value = customer;
   //customer = customer.replace(/^(mr|mrs|miss|ms|mx|dr)\s+/i, "");
 
@@ -117,8 +150,10 @@ function validateStartTime() {
     return false;
   }
 
-  if(startTime > now + 2592000000){
-    statusMessage.textContent = "You can not create bookings over 30 days in advance.";
+  if (startTime > now + 2592000000) {
+    statusMessage.textContent =
+      "You can not create bookings over 30 days in advance.";
+      return false;
   }
 
   return true;
@@ -131,16 +166,14 @@ function validateEndTime() {
     return false;
   }
   // Booking can't be too short
-    if (endTime < startTime + 1800000) {
+  if (endTime < startTime + 1800000) {
     statusMessage.textContent = "The booking must be at least 30 minutes long.";
     return false;
-    }
-    // Booking can't be over one day
-    if (endTime < startTime + 86400000) {
+  }
+  // Booking can't be over one day
+  if (endTime > startTime + 86400000) {
     statusMessage.textContent = "The booking must be less than 24 hours long.";
     return false;
-    }
+  }
   return true;
 }
-
-// More overlapping protection

@@ -6,9 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-image: url("Assets/EV2Exterior1.jpg");
-    /* background-image: url("Assets/EV2Exterior2.jpg");
-    background-image: url("Assets/EV2Exterior3.jpg"); */
+    background-image: url("Assets/EV2Exterior2.jpg");
     background-size: cover;
     background-position: center;
     display: grid;

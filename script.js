@@ -19,6 +19,41 @@ window.addEventListener("load", () =>{
   document.body.style.backgroundImage = `url(${backgroundImages[random]})`;
 });
 
+// Formats a Date for a datetime-local input
+function formatDateTimeLocal(date) {
+  const offset = date.getTimezoneOffset();
+  const localDate = new Date(date.getTime() - offset * 60000);
+  return localDate.toISOString().slice(0, 16);
+}
+
+// Set default values when the page loads
+window.addEventListener("load", () => {
+  const start = new Date(Date.now()); //+ 1800000); // 30 mins from now
+  const end = new Date(start.getTime() + 1800000); // 30 mins after start
+
+  document.getElementById("start-time").value =
+    formatDateTimeLocal(start);
+
+  document.getElementById("end-time").value =
+    formatDateTimeLocal(end);
+});
+
+// Keep end time valid when start time changes
+document.getElementById("start-time").addEventListener("change", () => {
+  const startTime = new Date(
+    document.getElementById("start-time").value
+  ).getTime();
+
+  const endTimeInput = document.getElementById("end-time");
+  const endTime = new Date(endTimeInput.value).getTime();
+
+  // Move end time forward if less than 30 minutes
+  if (endTime < startTime + 1800000) {
+    endTimeInput.value = formatDateTimeLocal(
+      new Date(startTime + 1800000)
+    );
+  }
+});
 
 
 form.addEventListener("submit", async function (event) {
@@ -28,7 +63,7 @@ form.addEventListener("submit", async function (event) {
   submitButton.textContent = "Submitting...";
   statusMessage.textContent = "";
 
-  if (!validateForm()){
+  if (!(await validateForm())){
     submitButton.disabled = false;
     submitButton.textContent = "Submit";
     return;
@@ -67,6 +102,7 @@ form.addEventListener("submit", async function (event) {
   }
 
   submitButton.disabled = false;
+statusMessage.style.color = "green";
   submitButton.textContent = "Submit";
 });
 
