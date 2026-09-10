@@ -38,5 +38,13 @@
     "starttime": "2026-09-10T16:20",
     "endtime": "2026-09-10T18:20",
     "timestamp": "2026-09-10T15:15:36.924Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "Stonic",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-10T16:25",
+    "endtime": "2026-09-10T16:26",
+    "timestamp": "2026-09-10T15:25:49.570Z"
   }
 ]
