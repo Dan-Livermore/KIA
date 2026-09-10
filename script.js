@@ -10,13 +10,13 @@ let bookings = [];
 
 window.addEventListener("load", () =>{
   const backgroundImages = [
-    "EV2Exterior1.jpg",
-    "EV2Exterior2.jpeg",
-    "EV2Exterior7.jpg",
+    "Assets/EV2Exterior1.jpg",
+    "Assets/EV2Exterior2.jpg",
+    "Assets/EV2Exterior3.jpg",
   ];
 
-  const random = Math.floor(Math.random() * 3) + 1;
-  document.body.style.backgroundImage = `url('EV2Exterior${random}.jpg')`;
+  const random = Math.floor(Math.random() * 3);
+  document.body.style.backgroundImage = `url(${backgroundImages[random]})`;
 });
 
 
