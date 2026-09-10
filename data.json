@@ -54,5 +54,13 @@
     "starttime": "2026-09-10T16:40",
     "endtime": "2026-09-10T17:40",
     "timestamp": "2026-09-10T15:40:48.139Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV4 Fastback",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-10T17:12",
+    "endtime": "2026-09-10T17:44",
+    "timestamp": "2026-09-10T16:12:26.867Z"
   }
 ]
