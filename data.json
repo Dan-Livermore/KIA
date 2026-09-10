@@ -46,5 +46,13 @@
     "starttime": "2026-09-10T16:25",
     "endtime": "2026-09-10T16:26",
     "timestamp": "2026-09-10T15:25:49.570Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "XCeed",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-10T16:40",
+    "endtime": "2026-09-10T17:40",
+    "timestamp": "2026-09-10T15:40:48.139Z"
   }
 ]
