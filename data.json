@@ -78,5 +78,13 @@
     "starttime": "2026-09-10T17:17",
     "endtime": "2026-09-10T19:13",
     "timestamp": "2026-09-10T16:17:59.964Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "Sportage",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-11T09:40",
+    "endtime": "2026-09-11T10:10",
+    "timestamp": "2026-09-11T08:40:53.260Z"
   }
 ]
