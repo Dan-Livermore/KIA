@@ -3,61 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <title>KIA Dynamic Text Test</title>
+    <link rel="icon" type="image/png" href="Assets/favicon.png">  
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/choices.js/publics"
-    />
+    <link rel="stylesheet" />
   </head>
 
   <body>
     <div id="form">
-      <h1>Kia Dynamic Text</h1>
+      <h1>Kia Dynamic Message</h1>
 
       <form id="form-kia">
         <label for="dealer">Dealer</label>
         <div class="dropdown">
-          <input
-            type="text"
-            id="dealer"
-            autocomplete="off"
-            placeholder="Enter the dealer's name"
-          />
-
+          <input type="text" id="dealer" autocomplete="off" placeholder="Enter the dealer's name" required/>
           <div id="results"></div>
         </div>
 
         <label for="text">Customer Name</label>
-        <input
-          type="text"
-          id="customer"
-          name="customer"
-          placeholder="Enter the clients name"
-          required
-        />
+        <input type="text" id="customer" placeholder="Enter the customer's name" required/>
 
         <label for="text">Car Name</label>
         <div class="dropdown">
-          <input
-            type="text"
-            id="car"
-            autocomplete="off"
-            readonly
-            placeholder="Select a car"
-          />
+          <input type="text" id="car" autocomplete="off" readonly placeholder="Select a car" required/>
           <div id="car-results"></div>
         </div>
 
         <label for="start-time">Start Time</label>
-        <input
-          type="datetime-local"
-          id="start-time"
-          name="startTime"
-          required
-        />
+        <input type="datetime-local" id="start-time" name="startTime" required/>
 
         <label for="end-time">End Time</label>
-        <input type="datetime-local" id="end-time" name="endTime" required />
+        <input type="datetime-local" id="end-time" name="endTime" required/>
 
         <button type="submit" id="submitButton">Save</button>
 
@@ -65,5 +40,6 @@
       </form>
     </div>
   </body>
+  <script src="validation.js"></script>
   <script src="script.js"></script>
 </html>
