@@ -118,5 +118,13 @@
     "starttime": "2026-09-11T10:25",
     "endtime": "2026-09-11T10:55",
     "timestamp": "2026-09-11T09:25:50.229Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-11T10:31",
+    "endtime": "2026-09-11T11:01",
+    "timestamp": "2026-09-11T09:31:56.204Z"
   }
 ]
