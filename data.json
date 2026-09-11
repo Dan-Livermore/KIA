@@ -126,5 +126,13 @@
     "starttime": "2026-09-11T10:31",
     "endtime": "2026-09-11T11:01",
     "timestamp": "2026-09-11T09:31:56.204Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV5 GT",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-11T10:33",
+    "endtime": "2026-09-11T11:03",
+    "timestamp": "2026-09-11T09:33:09.434Z"
   }
 ]
