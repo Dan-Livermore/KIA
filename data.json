@@ -150,5 +150,13 @@
     "starttime": "2026-09-11T10:37",
     "endtime": "2026-09-11T11:36",
     "timestamp": "2026-09-11T09:36:51.140Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bonnano",
+    "starttime": "2026-09-15T14:45",
+    "endtime": "2026-09-15T15:15",
+    "timestamp": "2026-09-15T13:44:29.222Z"
   }
 ]
