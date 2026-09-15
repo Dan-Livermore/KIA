@@ -222,5 +222,13 @@
     "starttime": "2026-09-15T15:27",
     "endtime": "2026-09-15T15:57",
     "timestamp": "2026-09-15T14:28:00.141Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "Sorento",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-15T16:32",
+    "endtime": "2026-09-15T17:02",
+    "timestamp": "2026-09-15T15:31:09.879Z"
   }
 ]
