@@ -66,32 +66,48 @@ function validateEmpty() {
 }
 
 function validateDuplicates(bookings) {
-  // Fail if location, customer and car are all the same time
-  const duplicate = bookings.some(
-    (booking) =>
-      booking.location === dealer &&
+  const bookingTime = startTime;
+
+  // Exact duplicate: same location, customer, car, and time
+  const duplicate = bookings.some((booking) => {
+    return (
+      booking.dealer === dealer &&
       booking.customer === customer &&
       booking.car === car &&
-      new Date(booking.starttime).getTime() === startTime,
-  );
+      new Date(booking.starttime).getTime() === bookingTime
+    );
+  });
+
+  console.log("duplicate:", duplicate);
 
   if (duplicate) {
-    statusMessage.textContent = "This booking already exists.";
+    statusMessage.textContent =
+      "A booking already exists for this customer, vehicle and time.";
     return false;
   }
 
-  // Fail if customer already has a meeting
-  const clash = bookings.some(
-    (booking) =>
-      booking.location === dealer &&
+  // Customer already has a booking at this location at this time
+  const clash = bookings.some((booking) => {
+    const existingStart = new Date(booking.starttime).getTime();
+    const existingEnd = new Date(booking.endtime).getTime();
+
+    return (
+      booking.dealer === dealer &&
       booking.customer === customer &&
-      new Date(booking.starttime).getTime() === startTime,
-  );
+      booking.car === car &&
+      existingStart < endTime &&
+      existingEnd > startTime
+    );
+  });
+
+  console.log("clash:", clash);
 
   if (clash) {
-    statusMessage.textContent = "This customer already has a booking at this store for this time.";
+    statusMessage.textContent =
+      "This customer already has a booking at this store for this time.";
     return false;
   }
+
   return true;
 }
 

@@ -75,8 +75,10 @@ form.addEventListener("submit", async function (event) {
     customer: document.getElementById("customer").value.trim(),
     starttime: document.getElementById("start-time").value.trim(),
     endtime: document.getElementById("end-time").value.trim(),
-  };
 
+    turnstile: document.querySelector('[name="cf-turnstile-response"]')?.value
+  };
+console.log("Turnstile token:", submission.turnstile);
   try {
     const response = await fetch(APPS_SCRIPT_URL, {
       method: "POST",

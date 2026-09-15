@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" href="Assets/favicon.png">  
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" />
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </head>
 
   <body>
@@ -33,6 +34,9 @@
 
         <label for="end-time">End Time</label>
         <input type="datetime-local" id="end-time" name="endTime" required/>
+
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAE2UyU1488vBP5HO"></div>
+
 
         <button type="submit" id="submitButton">Save</button>
 
