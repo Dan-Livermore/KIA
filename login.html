@@ -26,10 +26,6 @@
       <div id="error"></div>
     </div>
 
-
-
-
-
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
@@ -41,10 +37,6 @@
         onAuthStateChanged,
       } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
-      // ====================
-      // FIREBASE CONFIG
-      // ====================
-
       const firebaseConfig = {
         apiKey: "AIzaSyBWy-A-edr8Yc-J6dwEOrO-5ML4Bcy1xJs",
         authDomain: "kia-dynamic-booking.firebaseapp.com",
@@ -54,30 +46,17 @@
         appId: "1:68354315772:web:e1a6acc9c7a8f42be10e79",
       };
 
-      // ====================
-      // INITIALISE FIREBASE
-      // ====================
-
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
 
-      // ====================
-      // ELEMENT REFERENCES
-      // ====================
 
       const emailInput = document.getElementById("email");
-
       const passwordInput = document.getElementById("password");
-
       const loginBtn = document.getElementById("loginBtn");
-
       const registerBtn = document.getElementById("registerBtn");
-
       const errorDiv = document.getElementById("error");
 
-      // ====================
       // REGISTER ACCOUNT
-      // ====================
 
     //   registerBtn.addEventListener("click", async () => {
     //     errorDiv.textContent = "";
@@ -103,10 +82,8 @@
     //     }
     //   });
 
-      // ====================
       // LOGIN
-      // ====================
-
+      
       loginBtn.addEventListener("click", async () => {
         errorDiv.textContent = "";
 
@@ -131,19 +108,11 @@
         }
       });
 
-      // ====================
-      // AUTH STATE
-      // ====================
-
       onAuthStateChanged(auth, (user) => {
         if (user) {
           window.location.href = "index.html";
         }
       });
-
-      // ====================
-      // GLOBAL HELPERS
-      // ====================
 
       window.logout = async () => {
         await signOut(auth);

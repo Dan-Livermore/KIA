@@ -6,48 +6,59 @@
     <link rel="icon" type="image/png" href="Assets/favicon.png">  
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.cdnfonts.com/css/kia-light" rel="stylesheet">
-    <style>
-       @import url('https://fonts.cdnfonts.com/css/kia-light');
-    </style>
+    <style>@import url('https://fonts.cdnfonts.com/css/kia-light');</style>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </head>
 
   <body style="display:none;">
     <button id="LogoutButton">Log Out</button>
+
     <div id="form">
+      <!-- // Form Title -->
       <h1>Kia Dynamic Message</h1>
 
       <form id="form-kia">
+        <!-- // Dealership Selector -->
         <label for="dealer">Dealer</label>
         <div class="dropdown">
           <input type="text" id="dealer" autocomplete="off" placeholder="Enter the dealer's name" required/>
           <div id="results"></div>
         </div>
 
+        <!-- // Customer Name Textbox -->
         <label for="text">Customer Name</label>
         <input type="text" id="customer" placeholder="Enter the customer's name" required/>
 
+        <!-- // Car Type Selector -->
         <label for="text">Car Name</label>
         <div class="dropdown">
           <input type="text" id="car" autocomplete="off" readonly placeholder="Select a car" required/>
           <div id="car-results"></div>
         </div>
 
+        <!-- // Start Time Entry -->
         <label for="start-time">Start Time</label>
         <input type="datetime-local" id="start-time" name="startTime" required/>
 
+        <!-- // End Time Entry -->
         <label for="end-time">End Time</label>
         <input type="datetime-local" id="end-time" name="endTime" required/>
 
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAE2UyU1488vBP5HO"></div>
+        <!-- // Hidden Turnstile Security -->
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAE2UyU1488vBP5HO" style="display: none;"></div>
 
-
+        <!-- // Submit Button -->
         <button type="submit" id="submitButton">Save</button>
 
+        <!-- // Submit Warnings -->
         <p id="status"></p>
+
       </form>
     </div>
   </body>
-  <script src="validation.js"></script>
+
+  <!-- // JavaScript Imports -->
   <script type="module" src="script.js"></script>
+  <script src="validation.js"></script>
 </html>
+=

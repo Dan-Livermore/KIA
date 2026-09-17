@@ -1,3 +1,4 @@
+// Initiates Variables For Form Inputs
 let dealer;
 let customer;
 let car;
@@ -5,23 +6,37 @@ let startTime;
 let endTime;
 let statusMessage = document.getElementById("status");
 
+let dealers = [];
+let cars = [];
+
+async function loadDealersForValidation() {
+    const response = await fetch("./dealers.json");
+    dealers = await response.json();
+}
+
+async function loadCarsForValidation() {
+    const response = await fetch("./cars.json");
+    cars = await response.json();
+}
+
 async function validateForm() {
+  statusMessage.style.color = "red";
   // When called get the data for submission
   getData();
-
+  loadDealersForValidation();
+  loadCarsForValidation();
   // Fetches existing bookings to be used to prevent duplication
-const response = await fetch("data.json");
-if (!response.ok) {
-  statusMessage.textContent = "Could not load existing bookings.";
-  return false;
-}
-const bookings = await response.json();
-statusMessage.style.color = "red";
+  const response = await fetch("data.json");
+  if (!response.ok) {
+    statusMessage.textContent = "Could not load existing bookings.";
+    return false;
+  }
+  const bookings = await response.json();
   return (
     validateEmpty() &&
     validateDuplicates(bookings) &&
-    //validateDealers() &&
-    //validateCars() &&
+    validateDealers() &&
+    validateCars() &&
     validateCustomers() &&
     validateStartTime() &&
     validateEndTime()
@@ -114,7 +129,7 @@ function validateDuplicates(bookings) {
 
 function validateDealers() {
   // Dealer on list
-  const existingDealer = dealers.some((item) => item.name === dealer);
+  const existingDealer = dealers.some((item) => item.name == dealer);
   if (!existingDealer) {
     statusMessage.textContent = "Select a dealer from the list.";
     return false;
@@ -170,7 +185,7 @@ function validateStartTime() {
   if (startTime > now + 2592000000) {
     statusMessage.textContent =
       "You can not create bookings over 30 days in advance.";
-      return false;
+    return false;
   }
 
   return true;
