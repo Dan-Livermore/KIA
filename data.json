@@ -257,5 +257,14 @@
     "endtime": "2026-09-17T16:40",
     "turnstile": "1.zK1RJDQHPMX-qZIIMnNi2qSw7EX-fMPPoG_RZd3J4l8ACqFHae3rkGrTyta0VWrJDclfke2kBHOgEYn5E5_9P_oSsaWRwx_hf9sBkYFUB0cuC--2RDZ-Zkguh6NNPFYNf9WNSt3VTewWOZR-FiTOLMC0b__oNScFXQDgO5dBKiy2j-jNXOiGLddlelyx6z-dpsFDL1mF81ssQUHBLScaIs-6DGIMjL1pzs-8sqzTq7k8vVCyPaZsV8muoMvrYYhPnSTcB4ptXislPIgLYvQ0QMbAFq3inArG9i7J8yb66PQboMP_YX1DsBArIVHdRkkRbnkKLPLFSCYEFE-ns9XwRgpJtcHXxpm8Uq4ICUCTNxac5ZbkXPtPELRBl8oxiexJw2895iietLFHVh3BEsDE_SoA1YyjSRbpGgYITMCjzS0RJEeyNgwbgsEzU_dwhgeLIeWc3K-95kW0sDZVgokJa2CpvLjPW3Y5ja9LMvkfEh4BDF1czI6YRTYarkSLVdbqY0uL01AdIRckEkXp9FkRiEwNX6WQzLTLAn_zMekie2IpR9lZYcmrnv6hj5MX04oQrTwsdLpFetlaQ5L04Hfn4Q8Hl8a6kQRLxf2PcJ7UFV9n10fzv2BX8Y5L3skQAm4S5GCf5rZI2Rf839JF0JVLxY-0ntHv6GUHx5mai1FouQs.g2CK1zneo1rvSaoWevJtXA.20cd1fa898c6d048157f6d9135bc171d001e61989dcbfc6624a9695a3680a296",
     "timestamp": "2026-09-17T14:40:52.050Z"
+  },
+  {
+    "dealer": "Acorn (Burntwood)",
+    "car": "EV4",
+    "customer": "Mr Barnaby",
+    "starttime": "2026-09-17T15:41",
+    "endtime": "2026-09-17T16:41",
+    "turnstile": "",
+    "timestamp": "2026-09-17T14:41:55.755Z"
   }
 ]
