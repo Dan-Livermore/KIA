@@ -22,5 +22,258 @@
     "starttime": "2026-09-08T11:56",
     "endtime": "2026-09-08T18:56",
     "timestamp": "2026-09-08T10:56:26.631Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV5 GT",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-10T16:10",
+    "endtime": "2026-09-10T17:15",
+    "timestamp": "2026-09-10T15:14:35.183Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-10T16:20",
+    "endtime": "2026-09-10T18:20",
+    "timestamp": "2026-09-10T15:15:36.924Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "Stonic",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-10T16:25",
+    "endtime": "2026-09-10T16:26",
+    "timestamp": "2026-09-10T15:25:49.570Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "XCeed",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-10T16:40",
+    "endtime": "2026-09-10T17:40",
+    "timestamp": "2026-09-10T15:40:48.139Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV4 Fastback",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-10T17:12",
+    "endtime": "2026-09-10T17:44",
+    "timestamp": "2026-09-10T16:12:26.867Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV3",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-10T17:12",
+    "endtime": "2026-09-10T17:44",
+    "timestamp": "2026-09-10T16:12:56.821Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV4 Fastback",
+    "customer": "Jeff",
+    "starttime": "2026-09-10T17:17",
+    "endtime": "2026-09-10T19:13",
+    "timestamp": "2026-09-10T16:17:59.964Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "Sportage",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-11T09:40",
+    "endtime": "2026-09-11T10:10",
+    "timestamp": "2026-09-11T08:40:53.260Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV4 Fastback",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-11T10:21",
+    "endtime": "2026-09-11T10:51",
+    "timestamp": "2026-09-11T09:21:08.685Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV6 GT",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-11T10:22",
+    "endtime": "2026-09-11T10:52",
+    "timestamp": "2026-09-11T09:22:12.988Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV9",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-11T10:22",
+    "endtime": "2026-09-11T18:22",
+    "timestamp": "2026-09-11T09:22:54.723Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV5 GT",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-11T10:25",
+    "endtime": "2026-09-11T10:55",
+    "timestamp": "2026-09-11T09:25:50.229Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-11T10:31",
+    "endtime": "2026-09-11T11:01",
+    "timestamp": "2026-09-11T09:31:56.204Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV5 GT",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-11T10:33",
+    "endtime": "2026-09-11T11:03",
+    "timestamp": "2026-09-11T09:33:09.434Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-11T10:36",
+    "endtime": "2026-09-11T11:06",
+    "timestamp": "2026-09-11T09:36:29.184Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV9",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-11T10:37",
+    "endtime": "2026-09-11T11:36",
+    "timestamp": "2026-09-11T09:36:51.140Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bonnano",
+    "starttime": "2026-09-15T14:45",
+    "endtime": "2026-09-15T15:15",
+    "timestamp": "2026-09-15T13:44:29.222Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bonnano",
+    "starttime": "2026-09-15T14:46",
+    "endtime": "2026-09-15T15:16",
+    "timestamp": "2026-09-15T13:45:12.476Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bonnano",
+    "starttime": "2026-09-15T14:56",
+    "endtime": "2026-09-15T15:26",
+    "timestamp": "2026-09-15T13:56:15.391Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bonnano",
+    "starttime": "2026-09-15T15:00",
+    "endtime": "2026-09-15T15:30",
+    "timestamp": "2026-09-15T14:00:47.931Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bonnano",
+    "starttime": "2026-09-15T15:10",
+    "endtime": "2026-09-15T15:40",
+    "timestamp": "2026-09-15T14:10:26.854Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bonnano",
+    "starttime": "2026-09-15T15:12",
+    "endtime": "2026-09-15T15:42",
+    "timestamp": "2026-09-15T14:12:51.938Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bonnano",
+    "starttime": "2026-09-15T15:13",
+    "endtime": "2026-09-15T15:43",
+    "timestamp": "2026-09-15T14:13:35.543Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bonnano",
+    "starttime": "2026-09-15T15:14",
+    "endtime": "2026-09-15T15:44",
+    "timestamp": "2026-09-15T14:14:29.607Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV2",
+    "customer": "Mr Bonnano",
+    "starttime": "2026-09-15T15:27",
+    "endtime": "2026-09-15T15:57",
+    "timestamp": "2026-09-15T14:28:00.141Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "Sorento",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-15T16:32",
+    "endtime": "2026-09-15T17:02",
+    "timestamp": "2026-09-15T15:31:09.879Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV4 Fastback",
+    "customer": "Mr Barnaby",
+    "starttime": "2026-09-16T12:34",
+    "endtime": "2026-09-16T13:04",
+    "turnstile": "",
+    "timestamp": "2026-09-16T11:31:28.842Z"
+  },
+  {
+    "dealer": "Acorn (Burntwood)",
+    "car": "EV3",
+    "customer": "Mr Smith",
+    "starttime": "2026-09-17T10:52",
+    "endtime": "2026-09-17T11:22",
+    "turnstile": "1.B_OxUyFOCHrJRs0BTYb9ZYSbpPYv9PuYB_4t5WuwXqVWJFi93fMVDUD74xwUx_NxYjbfnsEgAEHHEwzlRxn-K9CmV6zVw6hK76-MYFgEGWf_RY8V9DdycwghnhbyCSp-WcoKgXlz0FSqfEKw5ns-a44qGtvlvE9ewBg-LFmhOhFp7wNKbJC8qePicCRK3MPYc4p2RSvvrWDtGMptzl9DHwyJKNvGsHsCNteWJqQHdGSHa4Hnizk8Mx6GsUcjWBim2uuYTfhrW60F7joe3D57R2F_I-eKywz581UDuyJp4BEeyHvdNxyRkb9B38ooZW6L_tSV9Srt_r7QFCqrPYBCC4ZYa-OECLRAYgQ8Yt2HXg51N2tx9CQPhKfFFLLP88dFyUwAMsUPSNizCN-4Ol4sz3tPOayv5XI6TdDY0b0tgSsXUPcDI96Nz0Ppo-xGfr0skwTmYmCxXswkNa3rxf4GruehxQK7Rh--UhG_oX9rekf9JXzjl0v6WcXmYIYU5TWUlh3UoviHvDrp2BZ-Mmb3ohr2u5-I0CeejFNslft9QOAk5eXElddtL7M-e2cz5u00NcISFWTMhNXXDCqz3a0dtFuMD_EmYYxApnZHECQfMSM-THCkxYuTDkTBMnKa-eUqXUGBfiJAsrFbt8x0la1SOqFKjSnCURTAm8orvsQK3DA.HEkbcuBca8m2b0bnC-la7w.c50dc25d036dc43d41a41126a87246e7f6ca05613508f20e2c3efb22cd15fa92",
+    "timestamp": "2026-09-17T09:53:00.717Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV4",
+    "customer": "Mr Bond",
+    "starttime": "2026-09-17T15:40",
+    "endtime": "2026-09-17T16:40",
+    "turnstile": "1.zK1RJDQHPMX-qZIIMnNi2qSw7EX-fMPPoG_RZd3J4l8ACqFHae3rkGrTyta0VWrJDclfke2kBHOgEYn5E5_9P_oSsaWRwx_hf9sBkYFUB0cuC--2RDZ-Zkguh6NNPFYNf9WNSt3VTewWOZR-FiTOLMC0b__oNScFXQDgO5dBKiy2j-jNXOiGLddlelyx6z-dpsFDL1mF81ssQUHBLScaIs-6DGIMjL1pzs-8sqzTq7k8vVCyPaZsV8muoMvrYYhPnSTcB4ptXislPIgLYvQ0QMbAFq3inArG9i7J8yb66PQboMP_YX1DsBArIVHdRkkRbnkKLPLFSCYEFE-ns9XwRgpJtcHXxpm8Uq4ICUCTNxac5ZbkXPtPELRBl8oxiexJw2895iietLFHVh3BEsDE_SoA1YyjSRbpGgYITMCjzS0RJEeyNgwbgsEzU_dwhgeLIeWc3K-95kW0sDZVgokJa2CpvLjPW3Y5ja9LMvkfEh4BDF1czI6YRTYarkSLVdbqY0uL01AdIRckEkXp9FkRiEwNX6WQzLTLAn_zMekie2IpR9lZYcmrnv6hj5MX04oQrTwsdLpFetlaQ5L04Hfn4Q8Hl8a6kQRLxf2PcJ7UFV9n10fzv2BX8Y5L3skQAm4S5GCf5rZI2Rf839JF0JVLxY-0ntHv6GUHx5mai1FouQs.g2CK1zneo1rvSaoWevJtXA.20cd1fa898c6d048157f6d9135bc171d001e61989dcbfc6624a9695a3680a296",
+    "timestamp": "2026-09-17T14:40:52.050Z"
+  },
+  {
+    "dealer": "Acorn (Burntwood)",
+    "car": "EV4",
+    "customer": "Mr Barnaby",
+    "starttime": "2026-09-17T15:41",
+    "endtime": "2026-09-17T16:41",
+    "turnstile": "",
+    "timestamp": "2026-09-17T14:41:55.755Z"
+  },
+  {
+    "dealer": "Forttttttt Dunlop (Knaresborough)",
+    "car": "EV6 GT",
+    "customer": "Mr Kelly",
+    "starttime": "2026-09-17T15:45",
+    "endtime": "2026-09-17T16:42",
+    "turnstile": "1.7hI-iGESCW6yu9oEvlJkYequlKsOrm3T6-szzVndFB9jfnXjHlno7UkQTNF_YfXUftG8CrCiMcVWONq-VTps4JrnEvah1vv3Nzv5tsFbHslZrZO3hr-yBZ0kw1IyW2DjPK1_ZzUFTGShiVJ_tOHNsvxS-O1qQPMvvzi7LYbqYuwgrjc7yLrhZTIx0lv8d0_2DPvzllDjNFf9rbANSDSJilvU9_feXYgeFBiBs-gRMXJ-wi6YGn9bHuVW6_Dc_KRSbBbLNfJlmrRD0oAnH2c-kcNr8pwdycyq3wOzTuwhjR6FUT8qCy2SXm0QNjSC90kwteQq4VzbctD5otYo5w7CrbPz4m2k9SVorMq_qeOfnUCWiZ7Pgit7WI1NlDbVhMzZrqMIIhZpX3kT3habYYj0fRWUNcXWeMdG98cv6clksWo_zCc86Ho_REmn_55ajLxszYiWDA4p9u_Ktbmu-7Abmvx_QOcIdE3BjfmrN7kiM4jkfubRSAK5Fq_XH7049A6E0wEU5F-qTlfNFIyC4sfp3TpKO7MX4XZIHuJeI8S5BCiIW_NKZtb9PDLMP4jv4b3rpSKOBAiB_LPwzuL8yRK0JzOpWtL7adljcusHt5z9S0LPJR8oz8jYy-4AG10B9UrT7teyaF4KDxB_s-8ohI4fV8C_6j1g9pFhTQ2cHyXpqow.FLiW8CaifWDeAGFe85yQmA.739842a8b3e9b39c83eeeb5898aff3dfd626893743626b0bfca451bef62519c1",
+    "timestamp": "2026-09-17T14:43:14.397Z"
   }
 ]
