@@ -239,5 +239,14 @@
     "endtime": "2026-09-16T13:04",
     "turnstile": "",
     "timestamp": "2026-09-16T11:31:28.842Z"
+  },
+  {
+    "dealer": "Acorn (Burntwood)",
+    "car": "EV3",
+    "customer": "Mr Smith",
+    "starttime": "2026-09-17T10:52",
+    "endtime": "2026-09-17T11:22",
+    "turnstile": "1.B_OxUyFOCHrJRs0BTYb9ZYSbpPYv9PuYB_4t5WuwXqVWJFi93fMVDUD74xwUx_NxYjbfnsEgAEHHEwzlRxn-K9CmV6zVw6hK76-MYFgEGWf_RY8V9DdycwghnhbyCSp-WcoKgXlz0FSqfEKw5ns-a44qGtvlvE9ewBg-LFmhOhFp7wNKbJC8qePicCRK3MPYc4p2RSvvrWDtGMptzl9DHwyJKNvGsHsCNteWJqQHdGSHa4Hnizk8Mx6GsUcjWBim2uuYTfhrW60F7joe3D57R2F_I-eKywz581UDuyJp4BEeyHvdNxyRkb9B38ooZW6L_tSV9Srt_r7QFCqrPYBCC4ZYa-OECLRAYgQ8Yt2HXg51N2tx9CQPhKfFFLLP88dFyUwAMsUPSNizCN-4Ol4sz3tPOayv5XI6TdDY0b0tgSsXUPcDI96Nz0Ppo-xGfr0skwTmYmCxXswkNa3rxf4GruehxQK7Rh--UhG_oX9rekf9JXzjl0v6WcXmYIYU5TWUlh3UoviHvDrp2BZ-Mmb3ohr2u5-I0CeejFNslft9QOAk5eXElddtL7M-e2cz5u00NcISFWTMhNXXDCqz3a0dtFuMD_EmYYxApnZHECQfMSM-THCkxYuTDkTBMnKa-eUqXUGBfiJAsrFbt8x0la1SOqFKjSnCURTAm8orvsQK3DA.HEkbcuBca8m2b0bnC-la7w.c50dc25d036dc43d41a41126a87246e7f6ca05613508f20e2c3efb22cd15fa92",
+    "timestamp": "2026-09-17T09:53:00.717Z"
   }
 ]
