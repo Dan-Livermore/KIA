@@ -1,3 +1,41 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBWy-A-edr8Yc-J6dwEOrO-5ML4Bcy1xJs",
+    authDomain: "kia-dynamic-booking.firebaseapp.com",
+    projectId: "kia-dynamic-booking"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  document.body.style.display = "block";
+});
+
+
+document.getElementById("LogoutButton")
+  .addEventListener("click", async () => {
+    await signOut(auth);
+    window.location.href = "login.html";
+  });
+
+
+
+
+
+
 const form = document.getElementById("form-kia");
 const submitButton = document.getElementById("submitButton");
 const statusMessage = document.getElementById("status");

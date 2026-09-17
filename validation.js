@@ -3,6 +3,7 @@ let customer;
 let car;
 let startTime;
 let endTime;
+let statusMessage = document.getElementById("status");
 
 async function validateForm() {
   // When called get the data for submission
@@ -19,8 +20,8 @@ statusMessage.style.color = "red";
   return (
     validateEmpty() &&
     validateDuplicates(bookings) &&
-    validateDealers() &&
-    validateCars() &&
+    //validateDealers() &&
+    //validateCars() &&
     validateCustomers() &&
     validateStartTime() &&
     validateEndTime()
