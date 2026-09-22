@@ -1,21 +1,37 @@
+// Initiates Variables For Form Inputs
 let dealer;
 let customer;
 let car;
 let startTime;
 let endTime;
+let statusMessage = document.getElementById("status");
+
+let dealers = [];
+let cars = [];
+
+async function loadDealersForValidation() {
+    const response = await fetch("./dealers.json");
+    dealers = await response.json();
+}
+
+async function loadCarsForValidation() {
+    const response = await fetch("./cars.json");
+    cars = await response.json();
+}
 
 async function validateForm() {
+  statusMessage.style.color = "red";
   // When called get the data for submission
   getData();
-
+  loadDealersForValidation();
+  loadCarsForValidation();
   // Fetches existing bookings to be used to prevent duplication
-const response = await fetch("data.json");
-if (!response.ok) {
-  statusMessage.textContent = "Could not load existing bookings.";
-  return false;
-}
-const bookings = await response.json();
-statusMessage.style.color = "red";
+  const response = await fetch("data.json");
+  if (!response.ok) {
+    statusMessage.textContent = "Could not load existing bookings.";
+    return false;
+  }
+  const bookings = await response.json();
   return (
     validateEmpty() &&
     validateDuplicates(bookings) &&
@@ -66,38 +82,54 @@ function validateEmpty() {
 }
 
 function validateDuplicates(bookings) {
-  // Fail if location, customer and car are all the same time
-  const duplicate = bookings.some(
-    (booking) =>
-      booking.location === dealer &&
+  const bookingTime = startTime;
+
+  // Exact duplicate: same location, customer, car, and time
+  const duplicate = bookings.some((booking) => {
+    return (
+      booking.dealer === dealer &&
       booking.customer === customer &&
       booking.car === car &&
-      new Date(booking.starttime).getTime() === startTime,
-  );
+      new Date(booking.starttime).getTime() === bookingTime
+    );
+  });
+
+  console.log("duplicate:", duplicate);
 
   if (duplicate) {
-    statusMessage.textContent = "This booking already exists.";
+    statusMessage.textContent =
+      "A booking already exists for this customer, vehicle and time.";
     return false;
   }
 
-  // Fail if customer already has a meeting
-  const clash = bookings.some(
-    (booking) =>
-      booking.location === dealer &&
+  // Customer already has a booking at this location at this time
+  const clash = bookings.some((booking) => {
+    const existingStart = new Date(booking.starttime).getTime();
+    const existingEnd = new Date(booking.endtime).getTime();
+
+    return (
+      booking.dealer === dealer &&
       booking.customer === customer &&
-      new Date(booking.starttime).getTime() === startTime,
-  );
+      booking.car === car &&
+      existingStart < endTime &&
+      existingEnd > startTime
+    );
+  });
+
+  console.log("clash:", clash);
 
   if (clash) {
-    statusMessage.textContent = "This customer already has a booking at this store for this time.";
+    statusMessage.textContent =
+      "This customer already has a booking at this store for this time.";
     return false;
   }
+
   return true;
 }
 
 function validateDealers() {
   // Dealer on list
-  const existingDealer = dealers.some((item) => item.name === dealer);
+  const existingDealer = dealers.some((item) => item.name == dealer);
   if (!existingDealer) {
     statusMessage.textContent = "Select a dealer from the list.";
     return false;
@@ -153,7 +185,7 @@ function validateStartTime() {
   if (startTime > now + 2592000000) {
     statusMessage.textContent =
       "You can not create bookings over 30 days in advance.";
-      return false;
+    return false;
   }
 
   return true;

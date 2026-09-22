@@ -1,13 +1,44 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBWy-A-edr8Yc-J6dwEOrO-5ML4Bcy1xJs",
+    authDomain: "kia-dynamic-booking.firebaseapp.com",
+    projectId: "kia-dynamic-booking"
+};
+
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx8Pm_taFzeY5wdWw2_SV1ouh0tFlSXS1GXVeSEbDXLgQiQPElmMglsFOCTPIK8B5A/exec";
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 const form = document.getElementById("form-kia");
 const submitButton = document.getElementById("submitButton");
 const statusMessage = document.getElementById("status");
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx8Pm_taFzeY5wdWw2_SV1ouh0tFlSXS1GXVeSEbDXLgQiQPElmMglsFOCTPIK8B5A/exec";
-
 let dealers = [];
 let cars = [];
-let bookings = [];
 
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+  document.body.style.display = "grid";
+});
+
+document.getElementById("LogoutButton")
+  .addEventListener("click", async () => {
+    await signOut(auth);
+    window.location.href = "login.html";
+  });
+
+// Randomises Background Images
 window.addEventListener("load", () =>{
   const backgroundImages = [
     "Assets/EV2Exterior1.jpg",
@@ -29,7 +60,7 @@ function formatDateTimeLocal(date) {
 // Set default values when the page loads
 window.addEventListener("load", () => {
   const start = new Date(Date.now()); //+ 1800000); // 30 mins from now
-  const end = new Date(start.getTime() + 1800000); // 30 mins after start
+  const end = new Date(start.getTime() + 3600000); // 60 mins after start
 
   document.getElementById("start-time").value =
     formatDateTimeLocal(start);
@@ -75,12 +106,13 @@ form.addEventListener("submit", async function (event) {
     customer: document.getElementById("customer").value.trim(),
     starttime: document.getElementById("start-time").value.trim(),
     endtime: document.getElementById("end-time").value.trim(),
-  };
 
+    turnstile: document.querySelector('[name="cf-turnstile-response"]').value
+  };
+  
   try {
     const response = await fetch(APPS_SCRIPT_URL, {
       method: "POST",
-
       body: JSON.stringify(submission),
     });
 
@@ -89,7 +121,6 @@ form.addEventListener("submit", async function (event) {
     if (result.success) {
       statusMessage.textContent =
         "Thank you! Your submission has been received.";
-
       form.reset();
     } else {
       throw new Error(result.error || "Submission failed.");
@@ -102,7 +133,7 @@ form.addEventListener("submit", async function (event) {
   }
 
   submitButton.disabled = false;
-statusMessage.style.color = "green";
+  statusMessage.style.color = "green";
   submitButton.textContent = "Submit";
 });
 

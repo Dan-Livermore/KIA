@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kia Dynamic Text Login</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+       @import url('https://fonts.cdnfonts.com/css/kia-light');
+    </style>
+  </head>
+  <body class="login-page">
+    <div class="login-card">
+      <h1>Kia Dynamic Message</h1>
+
+      <p class="subtitle">Sign in to continue</p>
+
+      <input type="email" id="email" placeholder="Email Address" />
+
+      <input type="password" id="password" placeholder="Password" />
+
+      <button class="login-btn" id="loginBtn">Login</button>
+
+      <!-- <button class="register-btn" id="registerBtn">Create Account</button> -->
+
+      <div id="error"></div>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        signOut,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBWy-A-edr8Yc-J6dwEOrO-5ML4Bcy1xJs",
+        authDomain: "kia-dynamic-booking.firebaseapp.com",
+        projectId: "kia-dynamic-booking",
+        storageBucket: "kia-dynamic-booking.firebasestorage.app",
+        messagingSenderId: "68354315772",
+        appId: "1:68354315772:web:e1a6acc9c7a8f42be10e79",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+
+      const emailInput = document.getElementById("email");
+      const passwordInput = document.getElementById("password");
+      const loginBtn = document.getElementById("loginBtn");
+      const registerBtn = document.getElementById("registerBtn");
+      const errorDiv = document.getElementById("error");
+
+      // REGISTER ACCOUNT
+
+    //   registerBtn.addEventListener("click", async () => {
+    //     errorDiv.textContent = "";
+
+    //     try {
+    //       const email = emailInput.value.trim();
+
+    //       const password = passwordInput.value;
+
+    //       const userCredential = await createUserWithEmailAndPassword(
+    //         auth,
+    //         email,
+    //         password,
+    //       );
+
+    //       alert("Account created successfully.");
+
+    //       console.log(userCredential.user);
+    //     } catch (error) {
+    //       console.error(error);
+
+    //       errorDiv.textContent = error.message;
+    //     }
+    //   });
+ 
+      // LOGIN
+      
+      loginBtn.addEventListener("click", async () => {
+        errorDiv.textContent = "";
+
+        try {
+          const email = emailInput.value.trim();
+
+          const password = passwordInput.value;
+
+          const userCredential = await signInWithEmailAndPassword(
+            auth,
+            email,
+            password,
+          );
+
+          console.log("Logged in:", userCredential.user);
+
+          window.location.href = "index.html";
+        } catch (error) {
+          console.error(error);
+
+          errorDiv.textContent = error.message;
+        }
+      });
+
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          window.location.href = "index.html";
+        }
+      });
+
+      window.logout = async () => {
+        await signOut(auth);
+
+        window.location.href = "index.html";
+      };
+
+      window.getCurrentUserEmail = () => {
+        const user = auth.currentUser;
+
+        return user ? user.email : null;
+      };
+
+      window.getFirebaseToken = async () => {
+        const user = auth.currentUser;
+
+        if (!user) {
+          return null;
+        }
+
+        return await user.getIdToken();
+      };
+    </script>
+  </body>
+</html>
