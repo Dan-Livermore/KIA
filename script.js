@@ -58,16 +58,17 @@ function formatDateTimeLocal(date) {
 }
 
 // Set default values when the page loads
-window.addEventListener("load", () => {
+function setDefaultTime(){
   const start = new Date(Date.now()); //+ 1800000); // 30 mins from now
   const end = new Date(start.getTime() + 3600000); // 60 mins after start
 
   document.getElementById("start-time").value =
     formatDateTimeLocal(start);
-
   document.getElementById("end-time").value =
     formatDateTimeLocal(end);
-});
+};
+window.addEventListener("load", setDefaultTime());
+//});
 
 // Keep end time valid when start time changes
 document.getElementById("start-time").addEventListener("change", () => {
@@ -122,6 +123,7 @@ form.addEventListener("submit", async function (event) {
       statusMessage.textContent =
         "Thank you! Your submission has been received.";
       form.reset();
+      setDefaultTime();
     } else {
       throw new Error(result.error || "Submission failed.");
     }
@@ -145,20 +147,10 @@ async function loadDealers() {
     const dealerInput = document.getElementById("dealer");
     const results = document.getElementById("results");
 
-    dealerInput.addEventListener("input", () => {
-      const search = dealerInput.value.toLowerCase().trim();
-
+    dealerInput.addEventListener("click", () => {
       results.innerHTML = "";
 
-      if (search.length < 2) {
-        return;
-      }
-
-      const matches = dealers
-        .filter((dealer) => dealer.name.toLowerCase().includes(search))
-        .slice(0, 10);
-
-      matches.forEach((dealer) => {
+      dealers.forEach((dealer) => {
         const div = document.createElement("div");
         div.className = "result-item";
         div.textContent = dealer.name;
@@ -181,7 +173,46 @@ async function loadDealers() {
     console.error("Failed to load dealers:", error);
   }
 }
+
 document.addEventListener("DOMContentLoaded", loadDealers);
+      
+//     dealerInput.addEventListener("input", () => {
+//       const search = dealerInput.value.toLowerCase().trim();
+
+//       results.innerHTML = "";
+
+//       if (search.length < 2) {
+//         return;
+//       }
+
+//       const matches = dealers
+//         .filter((dealer) => dealer.name.toLowerCase().includes(search))
+//         .slice(0, 10);
+
+//       matches.forEach((dealer) => {
+//         const div = document.createElement("div");
+//         div.className = "result-item";
+//         div.textContent = dealer.name;
+
+//         div.addEventListener("click", () => {
+//           dealerInput.value = dealer.name;
+//           results.innerHTML = "";
+//         });
+
+//         results.appendChild(div);
+//       });
+//     });
+
+//     document.addEventListener("click", (e) => {
+//       if (e.target !== dealerInput && !results.contains(e.target)) {
+//         results.innerHTML = "";
+//       }
+//     });
+//   } catch (error) {
+//     console.error("Failed to load dealers:", error);
+//   }
+// }
+// document.addEventListener("DOMContentLoaded", loadDealers);
 
 async function loadCars() {
   try {

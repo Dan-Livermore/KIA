@@ -23,8 +23,8 @@ async function validateForm() {
   statusMessage.style.color = "red";
   // When called get the data for submission
   getData();
-  loadDealersForValidation();
-  loadCarsForValidation();
+  await loadDealersForValidation();
+  await loadCarsForValidation();
   // Fetches existing bookings to be used to prevent duplication
   const response = await fetch("data.json");
   if (!response.ok) {
@@ -45,9 +45,9 @@ async function validateForm() {
 
 function getData() {
   // Gets data that is going to be submitted
-  dealer = document.getElementById("dealer").value.trim();
+  dealer = document.getElementById("dealer").value.trim().toLowerCase();
   customer = document.getElementById("customer").value.trim();
-  car = document.getElementById("car").value.trim();
+  car = document.getElementById("car").value.trim().toLowerCase();
   startTime = new Date(document.getElementById("start-time").value).getTime();
   endTime = new Date(document.getElementById("end-time").value).getTime();
 }
@@ -98,7 +98,7 @@ function validateDuplicates(bookings) {
 
   if (duplicate) {
     statusMessage.textContent =
-      "A booking already exists for this customer, vehicle and time.";
+      "A booking already exists for this customer and vehicle at this time and location.";
     return false;
   }
 
@@ -129,7 +129,7 @@ function validateDuplicates(bookings) {
 
 function validateDealers() {
   // Dealer on list
-  const existingDealer = dealers.some((item) => item.name == dealer);
+  const existingDealer = dealers.some((item) => item.name.toLowerCase() === dealer);
   if (!existingDealer) {
     statusMessage.textContent = "Select a dealer from the list.";
     return false;
@@ -149,7 +149,7 @@ function validateCars() {
 
 function validateCustomers() {
   // Customer Name doesn't contain non letters
-  const validChars = /^[A-Za-z\s'-]+$/;
+  const validChars = /^[A-Za-zÀ-ÿ\s'-]+$/; 
   if (!validChars.test(customer)) {
     statusMessage.textContent =
       "Customer name can only include letters, spaces, apostrophies and hyphens.";
@@ -164,6 +164,7 @@ function validateCustomers() {
 
   // Capitalise and return data
   customer = customer
+    .replace(/[<>]/g, "")
     .toLowerCase()
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
