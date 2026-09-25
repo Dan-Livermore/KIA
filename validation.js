@@ -8,15 +8,21 @@ let statusMessage = document.getElementById("status");
 
 let dealers = [];
 let cars = [];
+let blacklist = [];
 
 async function loadDealersForValidation() {
-    const response = await fetch("./dealers.json");
-    dealers = await response.json();
+  const response = await fetch("./dealers.json");
+  dealers = await response.json();
 }
 
 async function loadCarsForValidation() {
-    const response = await fetch("./cars.json");
-    cars = await response.json();
+  const response = await fetch("./cars.json");
+  cars = await response.json();
+}
+
+async function loadBlacklistForValidation() {
+  const response = await fetch("./blacklist.json");
+  blacklist = await response.json();
 }
 
 async function validateForm() {
@@ -25,6 +31,7 @@ async function validateForm() {
   getData();
   await loadDealersForValidation();
   await loadCarsForValidation();
+  await loadBlacklistForValidation();
   // Fetches existing bookings to be used to prevent duplication
   const response = await fetch("data.json");
   if (!response.ok) {
@@ -47,7 +54,7 @@ function getData() {
   // Gets data that is going to be submitted
   dealer = document.getElementById("dealer").value.trim().toLowerCase();
   customer = document.getElementById("customer").value.trim();
-  car = document.getElementById("car").value.trim().toLowerCase();
+  car = document.getElementById("car").value.trim();
   startTime = new Date(document.getElementById("start-time").value).getTime();
   endTime = new Date(document.getElementById("end-time").value).getTime();
 }
@@ -129,7 +136,9 @@ function validateDuplicates(bookings) {
 
 function validateDealers() {
   // Dealer on list
-  const existingDealer = dealers.some((item) => item.name.toLowerCase() === dealer);
+  const existingDealer = dealers.some(
+    (item) => item.name.toLowerCase() === dealer,
+  );
   if (!existingDealer) {
     statusMessage.textContent = "Select a dealer from the list.";
     return false;
@@ -149,7 +158,7 @@ function validateCars() {
 
 function validateCustomers() {
   // Customer Name doesn't contain non letters
-  const validChars = /^[A-Za-zÀ-ÿ\s'-]+$/; 
+  const validChars = /^[A-Za-zÀ-ÿ\s'-]+$/;
   if (!validChars.test(customer)) {
     statusMessage.textContent =
       "Customer name can only include letters, spaces, apostrophies and hyphens.";
@@ -159,6 +168,16 @@ function validateCustomers() {
   // Customer Name must be shorter than 100 characters
   if (customer.length > 100) {
     statusMessage.textContent = "Customer name must be under 100 characters.";
+    return false;
+  }
+
+  // Check blacklist
+  const containsBlockedWord = blacklist.some((word) =>
+    new RegExp(`\\b${word}\\b`, "i").test(customer),
+  );
+
+  if (containsBlockedWord) {
+    statusMessage.textContent = "Customer name contains blocked language.";
     return false;
   }
 
@@ -182,11 +201,19 @@ function validateStartTime() {
     statusMessage.textContent = "Start time can not be in the past.";
     return false;
   }
-
+  // Start time not too far into the future
   if (startTime > now + 2592000000) {
     statusMessage.textContent =
       "You can not create bookings over 30 days in advance.";
     return false;
+  }
+
+  // Booking must be in work day (not before 8am)
+  const startHour = new Date(startTime).getHours();
+
+  if (startHour < 8) {
+    statusMessage.textContent = "Bookings must not start before 08:00.";
+  return false;
   }
 
   return true;
@@ -206,6 +233,15 @@ function validateEndTime() {
   // Booking can't be over one day
   if (endTime > startTime + 86400000) {
     statusMessage.textContent = "The booking must be less than 24 hours long.";
+    return false;
+  }
+
+  // Booking must finish before 18:00
+  const endHour = new Date(endTime).getHours();
+
+  if (endHour > 18 || (endHour === 18 && endDate.getMinutes() > 0)) {
+    statusMessage.textContent =
+      "Bookings must finish by 18:00.";
     return false;
   }
   return true;
