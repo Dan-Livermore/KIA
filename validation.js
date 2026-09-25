@@ -101,8 +101,6 @@ function validateDuplicates(bookings) {
     );
   });
 
-  console.log("duplicate:", duplicate);
-
   if (duplicate) {
     statusMessage.textContent =
       "A booking already exists for this customer and vehicle at this time and location.";
@@ -122,8 +120,6 @@ function validateDuplicates(bookings) {
       existingEnd > startTime
     );
   });
-
-  console.log("clash:", clash);
 
   if (clash) {
     statusMessage.textContent =

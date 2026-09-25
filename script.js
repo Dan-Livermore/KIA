@@ -159,6 +159,9 @@ async function loadDealers() {
         div.addEventListener("click", () => {
           dealerInput.value = dealer.name;
           results.innerHTML = "";
+
+          //TABLE RELATED
+          renderDealerBookings(dealer.name);
         });
 
         results.appendChild(div);
@@ -235,4 +238,81 @@ async function exportCsv() {
 document.getElementById("exportBtn").addEventListener("click", () => {
   const csv = exportCsv(dealers);
   downloadCsv(csv);
+});
+
+
+
+
+
+
+
+
+
+
+
+let bookings = [];
+
+async function loadBookings() {
+  try {
+    const response = await fetch("./data.json");
+    bookings = await response.json();
+
+    renderAllBookings();
+
+    if (bookings.length > 0) {
+      const latestBooking = bookings[bookings.length - 1];
+
+      document.getElementById("dealer").value =
+        latestBooking.dealer;
+
+      renderDealerBookings(latestBooking.dealer);
+    }
+  } catch (error) {
+    console.error("Failed to load bookings:", error);
+  }
+}
+
+function renderAllBookings() {
+  const table = document.getElementById("allBookingsTable");
+
+  table.innerHTML = bookings
+    .map(
+      (booking) => `
+        <tr>
+          <td>${booking.dealer}</td>
+          <td>${booking.customer}</td>
+          <td>${booking.car}</td>
+          <td>${booking.startTime}</td>
+          <td>${booking.endTime}</td>
+          <td>${booking.timeCreated}</td>
+        </tr>
+      `
+    )
+    .join("");
+}
+
+function renderDealerBookings(dealerName) {
+  const table = document.getElementById("dealerBookingsTable");
+
+  const filtered = bookings.filter(
+    (booking) => booking.dealer === dealerName
+  );
+
+  table.innerHTML = filtered
+    .map(
+      (booking) => `
+        <tr>
+          <td>${booking.customer}</td>
+          <td>${booking.car}</td>
+          <td>${booking.startTime}</td>
+          <td>${booking.endTime}</td>
+          <td>${booking.timeCreated}</td>
+        </tr>
+      `
+    )
+    .join("");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadBookings();
 });
