@@ -41,12 +41,13 @@ async function validateForm() {
   const bookings = await response.json();
   return (
     validateEmpty() &&
-    validateDuplicates(bookings) &&
+    // validateDuplicates(bookings) &&
     validateDealers() &&
     validateCars() &&
-    validateCustomers() &&
-    validateStartTime() &&
-    validateEndTime()
+    validateCustomers() 
+    // &&
+    // validateStartTime() &&
+    // validateEndTime()
   );
 }
 
@@ -55,8 +56,10 @@ function getData() {
   dealer = document.getElementById("dealer").value.trim().toLowerCase();
   customer = document.getElementById("customer").value.trim();
   car = document.getElementById("car").value.trim();
-  startTime = new Date(document.getElementById("start-time").value).getTime();
-  endTime = new Date(document.getElementById("end-time").value).getTime();
+  // startTime = new Date(document.getElementById("start-time").value).getTime();
+  // endTime = new Date(document.getElementById("end-time").value).getTime();
+  startTime = 0;
+  endTime = 0;
 }
 
 function validateEmpty() {

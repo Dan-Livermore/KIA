@@ -13,7 +13,9 @@ const firebaseConfig = {
 };
 
 const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbx8Pm_taFzeY5wdWw2_SV1ouh0tFlSXS1GXVeSEbDXLgQiQPElmMglsFOCTPIK8B5A/exec";
+  // "https://script.google.com/macros/s/AKfycbx8Pm_taFzeY5wdWw2_SV1ouh0tFlSXS1GXVeSEbDXLgQiQPElmMglsFOCTPIK8B5A/exec";
+  "https://script.google.com/macros/s/AKfycbzYhvzZju6Oww1y6emX8uq9Vt-6d9818qaEAdbzNMlN67JWBWo7OB_soxo0uVkl5vWR4w/exec";
+  
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -27,7 +29,7 @@ let cars = [];
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
     return;
   }
   document.body.style.display = "grid";
@@ -50,38 +52,38 @@ window.addEventListener("load", () => {
   document.body.style.backgroundImage = `url(${backgroundImages[random]})`;
 });
 
-// Formats a Date for a datetime-local input
-function formatDateTimeLocal(date) {
-  const offset = date.getTimezoneOffset();
-  const localDate = new Date(date.getTime() - offset * 60000);
-  return localDate.toISOString().slice(0, 16);
-}
+// // Formats a Date for a datetime-local input
+// function formatDateTimeLocal(date) {
+//   const offset = date.getTimezoneOffset();
+//   const localDate = new Date(date.getTime() - offset * 60000);
+//   return localDate.toISOString().slice(0, 16);
+// }
 
-// Set default values when the page loads
-function setDefaultTime() {
-  const start = new Date(Date.now()); //+ 1800000); // 30 mins from now
-  const end = new Date(start.getTime() + 3600000); // 60 mins after start
+// // Set default values when the page loads
+// function setDefaultTime() {
+//   const start = new Date(Date.now()); //+ 1800000); // 30 mins from now
+//   const end = new Date(start.getTime() + 3600000); // 60 mins after start
 
-  document.getElementById("start-time").value = formatDateTimeLocal(start);
-  document.getElementById("end-time").value = formatDateTimeLocal(end);
-}
-window.addEventListener("load", setDefaultTime());
-//});
+//   document.getElementById("start-time").value = formatDateTimeLocal(start);
+//   document.getElementById("end-time").value = formatDateTimeLocal(end);
+// }
+// window.addEventListener("load", setDefaultTime());
 
-// Keep end time valid when start time changes
-document.getElementById("start-time").addEventListener("change", () => {
-  const startTime = new Date(
-    document.getElementById("start-time").value,
-  ).getTime();
 
-  const endTimeInput = document.getElementById("end-time");
-  const endTime = new Date(endTimeInput.value).getTime();
+// // Keep end time valid when start time changes
+// document.getElementById("start-time").addEventListener("change", () => {
+//   const startTime = new Date(
+//     document.getElementById("start-time").value,
+//   ).getTime();
 
-  // Move end time forward if less than 30 minutes
-  if (endTime < startTime + 1800000) {
-    endTimeInput.value = formatDateTimeLocal(new Date(startTime + 1800000));
-  }
-});
+//   const endTimeInput = document.getElementById("end-time");
+//   const endTime = new Date(endTimeInput.value).getTime();
+
+//   // Move end time forward if less than 30 minutes
+//   if (endTime < startTime + 1800000) {
+//     endTimeInput.value = formatDateTimeLocal(new Date(startTime + 1800000));
+//   }
+// });
 
 form.addEventListener("submit", async function (event) {
   event.preventDefault();
@@ -100,8 +102,8 @@ form.addEventListener("submit", async function (event) {
     dealer: document.getElementById("dealer").value.trim(),
     car: document.getElementById("car").value.trim(),
     customer: document.getElementById("customer").value.trim(),
-    starttime: document.getElementById("start-time").value.trim(),
-    endtime: document.getElementById("end-time").value.trim(),
+    // starttime: document.getElementById("start-time").value.trim(),
+    // endtime: document.getElementById("end-time").value.trim(),    
 
     turnstile: document.querySelector('[name="cf-turnstile-response"]').value,
   };
@@ -118,7 +120,7 @@ form.addEventListener("submit", async function (event) {
       statusMessage.textContent =
         "Thank you! Your submission has been received.";
       form.reset();
-      setDefaultTime();
+      //setDefaultTime();
     } else {
       throw new Error(result.error || "Submission failed.");
     }
@@ -236,8 +238,3 @@ document.getElementById("exportBtn").addEventListener("click", () => {
   const csv = exportCsv(dealers);
   downloadCsv(csv);
 });
-
-
-
-
-
