@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>KIA Dynamic Form Data</title>
+    <link rel="icon" type="image/png" href="Assets/favicon.png" />
+    <link rel="stylesheet" href="bookings.css" />
+    <link href="https://fonts.cdnfonts.com/css/kia-light" rel="stylesheet" />
+    <style>
+      @import url("https://fonts.cdnfonts.com/css/kia-light");
+    </style>
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="page-container">
+      <h1>Bookings</h1>
+
+      <h2>Bookings By Location</h2>
+
+      <div class="dropdown">
+        <input
+          type="text"
+          id="dealer"
+          autocomplete="off"
+          placeholder="Enter the dealer's name"
+        />
+        <div id="results"></div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Car</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>Time Created</th>
+            </tr>
+          </thead>
+          <tbody id="dealerBookingsTable"></tbody>
+        </table>
+      </div>
+      <h2>All Bookings</h2>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Customer</th>
+              <th>Car</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>Time Created</th>
+            </tr>
+          </thead>
+          <tbody id="allBookingsTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="table.js"></script>
+  </body>
+</html>
