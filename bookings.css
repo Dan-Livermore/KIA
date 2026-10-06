@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    
 }
 
 body {
@@ -24,15 +25,19 @@ body {
 }
 
 h1 {
-    text-align: center;
     margin-bottom: 2rem;
     color: #05141f;
+    text-align: center;
 }
 
 h2 {
     color: #05141f;
     margin-top: 2rem;
     margin-bottom: 1rem;
+}
+
+table{
+    text-align: center;
 }
 
 .dropdown {
@@ -95,18 +100,15 @@ table {
 thead {
     background: #0066cc;
     color: white;
-}
-
-th {
-    text-align: left;
-    padding: 1rem;
     font-weight: 600;
 }
 
+th,
 td {
     padding: 0.9rem 1rem;
-    border-bottom: 1px solid #ececec;
+    border: 1px solid #ececec;
 }
+
 
 tbody tr:nth-child(even) {
     background-color: #f8f9fb;
@@ -129,4 +131,14 @@ tbody tr:hover {
     .dropdown {
         width: 100%;
     }
+}
+
+th {
+    cursor: pointer;
+    text-align: center;
+    user-select: none;
+}
+
+th:hover {
+    background-color: #01488f;
 }

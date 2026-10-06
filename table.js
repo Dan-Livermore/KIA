@@ -126,3 +126,39 @@ function formatDate(dateString) {
     minute: "2-digit"
   });
 }
+
+document.querySelectorAll("table").forEach(table => {
+    const headers = table.querySelectorAll("th");
+
+    headers.forEach((header, columnIndex) => {
+        header.style.cursor = "pointer";
+
+        header.addEventListener("click", () => {
+            sortTable(table, columnIndex);
+        });
+    });
+});
+
+function sortTable(table, columnIndex) {
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    const ascending =
+        table.dataset.sortColumn != columnIndex ||
+        table.dataset.sortDirection !== "asc";
+
+    rows.sort((a, b) => {
+        const aText = a.cells[columnIndex].textContent.trim().toLowerCase();
+        const bText = b.cells[columnIndex].textContent.trim().toLowerCase();
+
+        return ascending
+            ? aText.localeCompare(bText)
+            : bText.localeCompare(aText);
+    });
+
+    table.dataset.sortColumn = columnIndex;
+    table.dataset.sortDirection = ascending ? "asc" : "desc";
+
+    tbody.innerHTML = "";
+    rows.forEach(row => tbody.appendChild(row));
+}
