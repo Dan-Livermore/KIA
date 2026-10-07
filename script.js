@@ -41,16 +41,16 @@ document.getElementById("LogoutButton").addEventListener("click", async () => {
 });
 
 // Randomises Background Images
-window.addEventListener("load", () => {
-  const backgroundImages = [
-    "Assets/EV2Exterior1.jpg",
-    "Assets/EV2Exterior2.jpg",
-    "Assets/EV2Exterior3.jpg",
-  ];
+// window.addEventListener("load", () => {s
+//   const backgroundImages = [
+//     "Assets/EV2Exterior1.jpg",
+//     "Assets/EV2Exterior2.jpg",
+//     "Assets/EV2Exterior3.jpg",
+//   ];
 
-  const random = Math.floor(Math.random() * 3);
-  document.body.style.backgroundImage = `url(${backgroundImages[random]})`;
-});
+//   const random = Math.floor(Math.random() * 3);
+//   document.body.style.backgroundImage = `url(${backgroundImages[random]})`;
+// });
 
 // // Formats a Date for a datetime-local input
 // function formatDateTimeLocal(date) {

@@ -8,14 +8,14 @@ async function loadBookings() {
 
     renderAllBookings();
 
-    if (bookings.length > 0) {
-      const latestBooking = bookings[bookings.length - 1];
+    // if (bookings.length > 0) {
+    //   const latestBooking = bookings[bookings.length - 1];
 
-      document.getElementById("dealer").value =
-        latestBooking.dealer;
+    //   document.getElementById("dealer").value =
+    //     latestBooking.dealer;
 
-      renderDealerBookings(latestBooking.dealer);
-    }
+    //   renderDealerBookings(latestBooking.dealer);
+    // }
   } catch (error) {
     console.error("Failed to load bookings:", error);
   }
