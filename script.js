@@ -1,5 +1,3 @@
-console.log("Script loaded")
-
 // import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 // import {
@@ -14,9 +12,7 @@ console.log("Script loaded")
 //   projectId: "kia-dynamic-booking",
 // };
 
-const APPS_SCRIPT_URL =
-  // "https://script.google.com/macros/s/AKfycbx8Pm_taFzeY5wdWw2_SV1ouh0tFlSXS1GXVeSEbDXLgQiQPElmMglsFOCTPIK8B5A/exec";
-  "https://script.google.com/macros/s/AKfycbzYhvzZju6Oww1y6emX8uq9Vt-6d9818qaEAdbzNMlN67JWBWo7OB_soxo0uVkl5vWR4w/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyUSZCNndrMLKUHW9QRaQ-QTdfqy7VXGcVSRa_wUS0qrpnEGoGoC1_9ygsVoOQ1t7ETBg/exec";
   
 
 // const app = initializeApp(firebaseConfig);
@@ -115,30 +111,25 @@ form.addEventListener("submit", async function (event) {
   };
 
   try {
-    const response = await fetch(APPS_SCRIPT_URL, {
+    await fetch(APPS_SCRIPT_URL, {
       method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=UTF-8" },
       body: JSON.stringify(submission),
     });
 
-    const result = await response.json();
-
-    if (result.success) {
-      statusMessage.textContent =
-        "Thank you! Your submission has been received.";
-      form.reset();
-      //setDefaultTime();
-    } else {
-      throw new Error(result.error || "Submission failed.");
-    }
+    statusMessage.style.color = "green";
+    statusMessage.textContent =
+      "Thank you! Your submission has been sent.";
   } catch (error) {
     console.error("Submission error:", error);
 
+    statusMessage.style.color = "red";
     statusMessage.textContent =
-      "Sorry, something went wrong. Please try again.";
+      "The request could not be sent. Check your connection and try again.";
   }
 
   submitButton.disabled = false;
-  statusMessage.style.color = "green";
   submitButton.textContent = "Submit";
 });
 
@@ -244,5 +235,3 @@ document.addEventListener("DOMContentLoaded", loadCars);
 //   const csv = exportCsv(dealers);
 //   downloadCsv(csv);
 // });
-
-console.log("Script finished")
