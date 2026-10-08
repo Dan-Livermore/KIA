@@ -436,5 +436,11 @@
     "car": "EV9",
     "customer": "Dan",
     "timestamp": "2026-10-08T10:01:06.213Z"
+  },
+  {
+    "dealer": "Premier Automotive (Dukinfield)",
+    "car": "EV4 Fastback",
+    "customer": "Mr Williams",
+    "timestamp": "2026-10-08T10:27:15.185Z"
   }
 ]
