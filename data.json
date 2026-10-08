@@ -424,5 +424,11 @@
     "car": "EV4",
     "customer": "Time",
     "timestamp": "2026-10-08T09:48:33.640Z"
+  },
+  {
+    "dealer": "Bath Kia",
+    "car": "EV4 Fastback",
+    "customer": "Kia In A Bath",
+    "timestamp": "2026-10-08T09:49:59.902Z"
   }
 ]
