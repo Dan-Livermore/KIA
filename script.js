@@ -118,6 +118,9 @@ form.addEventListener("submit", async function (event) {
       body: JSON.stringify(submission),
     });
 
+    form.reset();
+    document.getElementById("results").replaceChildren();
+    document.getElementById("car-results").replaceChildren();
     statusMessage.style.color = "green";
     statusMessage.textContent =
       "Thank you! Your submission has been sent.";
