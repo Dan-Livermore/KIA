@@ -1,24 +1,26 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+console.log("Script loaded")
 
-import {
-  getAuth,
-  onAuthStateChanged,
-  signOut,
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBWy-A-edr8Yc-J6dwEOrO-5ML4Bcy1xJs",
-  authDomain: "kia-dynamic-booking.firebaseapp.com",
-  projectId: "kia-dynamic-booking",
-};
+// import {
+//   getAuth,
+//   onAuthStateChanged,
+//   signOut,
+// } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBWy-A-edr8Yc-J6dwEOrO-5ML4Bcy1xJs",
+//   authDomain: "kia-dynamic-booking.firebaseapp.com",
+//   projectId: "kia-dynamic-booking",
+// };
 
 const APPS_SCRIPT_URL =
   // "https://script.google.com/macros/s/AKfycbx8Pm_taFzeY5wdWw2_SV1ouh0tFlSXS1GXVeSEbDXLgQiQPElmMglsFOCTPIK8B5A/exec";
   "https://script.google.com/macros/s/AKfycbzYhvzZju6Oww1y6emX8uq9Vt-6d9818qaEAdbzNMlN67JWBWo7OB_soxo0uVkl5vWR4w/exec";
   
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+// const app = initializeApp(firebaseConfig);
+// const auth = getAuth(app);
 
 const form = document.getElementById("form-kia");
 const submitButton = document.getElementById("submitButton");
@@ -27,18 +29,22 @@ const statusMessage = document.getElementById("status");
 let dealers = [];
 let cars = [];
 
-onAuthStateChanged(auth, (user) => {
-  if (!user) {
-    window.location.href = "index.html";
-    return;
-  }
-  document.body.style.display = "grid";
-});
+// onAuthStateChanged(auth, (user) => {
+//   console.log("Auth state changed");
+//   console.log(user);
+//   if (!user) {
+//     console.log("No user found");
+//     window.location.href = "index.html";
+//     return;
+//   }
+//   console.log("User authenticated");
+//   document.body.style.display = "grid";
+// });
 
-document.getElementById("LogoutButton").addEventListener("click", async () => {
-  await signOut(auth);
-  window.location.href = "login.html";
-});
+// document.getElementById("LogoutButton").addEventListener("click", async () => {
+//   await signOut(auth);
+//   window.location.href = "login.html";
+// });
 
 // Randomises Background Images
 // window.addEventListener("load", () => {s
@@ -105,7 +111,7 @@ form.addEventListener("submit", async function (event) {
     // starttime: document.getElementById("start-time").value.trim(),
     // endtime: document.getElementById("end-time").value.trim(),    
 
-    turnstile: document.querySelector('[name="cf-turnstile-response"]').value,
+    //turnstile: document.querySelector('[name="cf-turnstile-response"]').value,
   };
 
   try {
@@ -215,26 +221,28 @@ async function loadCars() {
 }
 document.addEventListener("DOMContentLoaded", loadCars);
 
-async function exportCsv() {
-  const jsonFile = await fetch("./data.json");
-  const data = await jsonFile.json();
+// async function exportCsv() {
+//   const jsonFile = await fetch("./data.json");
+//   const data = await jsonFile.json();
 
-  const headers = Object.keys(data[0]);
+//   const headers = Object.keys(data[0]);
 
-  const csv = [
-    headers.join(","),
-    ...data.map((row) => headers.map((h) => row[h]).join(",")),
-  ].join("\n");
+//   const csv = [
+//     headers.join(","),
+//     ...data.map((row) => headers.map((h) => row[h]).join(",")),
+//   ].join("\n");
 
-  const blob = new Blob([csv], { type: "text/csv" });
+//   const blob = new Blob([csv], { type: "text/csv" });
 
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "DynamicTextData.csv";
-  a.click();
-}
+//   const a = document.createElement("a");
+//   a.href = URL.createObjectURL(blob);
+//   a.download = "DynamicTextData.csv";
+//   a.click();
+// }
 
-document.getElementById("exportBtn").addEventListener("click", () => {
-  const csv = exportCsv(dealers);
-  downloadCsv(csv);
-});
+// document.getElementById("exportBtn").addEventListener("click", () => {
+//   const csv = exportCsv(dealers);
+//   downloadCsv(csv);
+// });
+
+console.log("Script finished")
