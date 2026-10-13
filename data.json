@@ -460,5 +460,11 @@
     "car": "EV9 GT",
     "customer": "Mobile Test",
     "timestamp": "2026-10-08T10:50:16.465Z"
+  },
+  {
+    "dealer": "F J Chalke (Yeovil)",
+    "car": "EV6",
+    "customer": "Arnie",
+    "timestamp": "2026-10-13T18:07:00.519Z"
   }
 ]
